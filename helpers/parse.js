@@ -87,6 +87,10 @@ export const configuredXss = new xss.FilterXSS({
           'wsrv.nl',
           'cf.way2muchnoise.eu',
           'bstats.org',
+          'cdn.nineminecraft.com',
+          'cdn-raw.nineminecraft.com',
+          'dev-cdn.nineminecraft.com',
+          'dev-cdn-raw.nineminecraft.com',
         ]
 
         if (!allowedHostnames.includes(url.hostname)) {

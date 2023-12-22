@@ -40,7 +40,7 @@
         />
         <ModrinthIcon
           v-else-if="members[message.author_id].role === 'admin'"
-          v-tooltip="'Modrinth Team'"
+          v-tooltip="'nineMinecraft Team'"
         />
         <MicIcon
           v-if="report && message.author_id === report.reporterUser.id"

@@ -282,7 +282,7 @@ export default {
           title: 'Add external links',
           id: 'add-links',
           description:
-            'Add any relevant links targeted outside of Modrinth, such as sources, issues, or a Discord invite.',
+            'Add any relevant links targeted outside of nineMinecraft, such as sources, issues, or a Discord invite.',
           status: 'suggestion',
           link: {
             path: 'settings/links',
@@ -346,7 +346,7 @@ export default {
           title: 'Resubmit for review',
           id: 'resubmit-for-review',
           description: `Your project has been ${this.project.status} by
-            Modrinth's staff. In most cases, you can resubmit for review after
+            nineMinecraft's staff. In most cases, you can resubmit for review after
             addressing the staff's message.`,
           status: 'review',
           link: {
