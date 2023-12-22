@@ -1,6 +1,6 @@
 <svg
-   width="512"
-   height="512"
+   width="512mm"
+   height="512mm"
    viewBox="0 0 512 512"
    version="1.1"
    id="svg30033"
@@ -20,9 +20,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="0.5253601"
-     inkscape:cx="394.01546"
-     inkscape:cy="442.55359"
+     inkscape:zoom="0.13134003"
+     inkscape:cx="898.43138"
+     inkscape:cy="689.05119"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
@@ -33,7 +33,14 @@
      inkscape:bbox-paths="true"
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="true"
-     inkscape:snap-bbox-midpoints="true" />
+     inkscape:snap-bbox-midpoints="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid822"
+       units="mm"
+       spacingx="0.99999997"
+       spacingy="0.99999997" />
+  </sodipodi:namedview>
   <defs
      id="defs30030" />
   <g
@@ -42,8 +49,7 @@
      id="layer1">
     <path
        id="rect10006-4-4-0-6"
-       style="font-variation-settings:normal;vector-effect:none;fill:var(--color-brand);fill-opacity:1;fill-rule:evenodd;stroke:#000080;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
-       d="M 125.98242 0 A 125.98423 125.98445 0 0 0 0 125.98242 L 0 629.92188 A 125.98423 125.98445 0 0 0 125.98242 755.90625 L 629.92383 755.90625 A 125.98423 125.98445 0 0 0 755.90625 629.92188 L 755.90625 125.98242 A 125.98423 125.98445 0 0 0 629.92383 0 L 125.98242 0 z M 125.98438 125.98633 L 377.95312 377.95508 L 503.9375 377.95508 L 503.9375 125.98633 L 629.92188 125.98633 L 629.92188 629.92383 L 377.95312 377.95508 L 251.96875 377.95508 L 251.96875 629.92383 L 125.98438 629.92383 L 125.98438 125.98633 z "
-       transform="scale(0.26458333)" />
+       style="font-variation-settings:normal;vector-effect:none;fill-opacity:1;fill-rule:evenodd;stroke:#000080;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+       d="M 85.332006,2.0967973e-7 A 85.333233,85.333383 0 0 0 2.0967973e-7,85.332006 V 426.66666 A 85.333233,85.333383 0 0 0 85.332006,511.99998 H 426.66798 a 85.333233,85.333383 0 0 0 85.332,-85.33332 V 85.332006 A 85.333233,85.333383 0 0 0 426.66798,2.0967973e-7 Z M 85.333362,85.334655 256.00002,256.00131 h 85.3333 V 85.334655 h 85.33334 V 426.66798 L 256,256.00131 H 170.66666 V 426.66798 H 85.333336 Z" />
   </g>
 </svg>
