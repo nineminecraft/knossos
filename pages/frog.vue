@@ -9,7 +9,7 @@ const messages = defineMessages({
   },
   frogDescription: {
     id: 'frog',
-    defaultMessage: "You've been frogged! 🐸",
+    defaultMessage: "You've been frogged! 🐸 [nineminecraft edition]",
   },
   frogAltText: {
     id: 'frog.altText',
