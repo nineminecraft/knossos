@@ -5,9 +5,10 @@
    version="1.1"
    id="svg30033"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
-   sodipodi:docname="nineMinecraftSquare.svg"
+   sodipodi:docname="nMgradient.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -20,9 +21,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="0.13134003"
-     inkscape:cx="898.43135"
-     inkscape:cy="689.05116"
+     inkscape:zoom="0.26268006"
+     inkscape:cx="852.7484"
+     inkscape:cy="877.49333"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
@@ -42,14 +43,36 @@
        spacingy="0.99999997" />
   </sodipodi:namedview>
   <defs
-     id="defs30030" />
+     id="defs30030">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient827">
+      <stop
+         style="stop-color:#f60031;stop-opacity:1"
+         offset="0"
+         id="stop823" />
+      <stop
+         style="stop-color:#f800a9;stop-opacity:1"
+         offset="1"
+         id="stop825" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient827"
+       id="linearGradient829"
+       x1="0"
+       y1="511.99997"
+       x2="511.99997"
+       y2="0"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
     <path
        id="rect10006-4-4-0-6"
-       style="font-variation-settings:normal;vector-effect:none;fill-opacity:1;fill-rule:evenodd;stroke:#000080;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;fill:var(--color-brand)"
+       style="font-variation-settings:normal;vector-effect:none;fill-opacity:1;fill-rule:evenodd;stroke:#000080;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;fill:url(#linearGradient829)"
        d="M 85.332006,2.0967973e-7 A 85.333233,85.333383 0 0 0 2.0967973e-7,85.332006 V 426.66666 A 85.333233,85.333383 0 0 0 85.332006,511.99998 H 426.66798 a 85.333233,85.333383 0 0 0 85.332,-85.33332 V 85.332006 A 85.333233,85.333383 0 0 0 426.66798,2.0967973e-7 Z M 85.333362,85.334655 256.00002,256.00131 h 85.3333 V 85.334655 h 85.33334 V 426.66798 L 256,256.00131 H 170.66666 V 426.66798 H 85.333336 Z" />
   </g>
 </svg>
