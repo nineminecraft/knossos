@@ -51,7 +51,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      title: 'Modrinth',
+      title: 'nineMinecraft',
       link: [
         // The type is necessary because the linter can't always compare this very nested/complex type on itself
         ...preloadedFonts.map((font): object => {
@@ -70,7 +70,7 @@ export default defineNuxtConfig({
           rel: 'search',
           type: 'application/opensearchdescription+xml',
           href: '/opensearch.xml',
-          title: 'Modrinth mods',
+          title: 'nineMinecraft mods',
         },
       ],
     },
@@ -136,7 +136,7 @@ export default defineNuxtConfig({
 
       const headers = {
         headers: {
-          'user-agent': 'Knossos generator (support@modrinth.com)',
+          'user-agent': 'Knossos generator (support@nineMinecraft.com)',
         },
       }
 
@@ -182,7 +182,7 @@ export default defineNuxtConfig({
     async 'vintl:extendOptions'(opts) {
       opts.locales ??= []
 
-      const isProduction = getDomain() === 'https://modrinth.com'
+      const isProduction = getDomain() === 'https://nineMinecraft.com'
 
       const resolveCompactNumberDataImport = await (async () => {
         const compactNumberLocales: string[] = []
@@ -291,7 +291,7 @@ export default defineNuxtConfig({
       apiBaseUrl: getApiUrl(),
       siteUrl: getDomain(),
 
-      owner: process.env.VERCEL_GIT_REPO_OWNER || 'modrinth',
+      owner: process.env.VERCEL_GIT_REPO_OWNER || 'nineMinecraft',
       slug: process.env.VERCEL_GIT_REPO_SLUG || 'knossos',
       branch:
         process.env.VERCEL_GIT_COMMIT_REF ||
@@ -392,9 +392,9 @@ function getDomain() {
     } else if (process.env.VERCEL_URL) {
       return `https://${process.env.VERCEL_URL}`
     } else if (getApiUrl() === STAGING_API_URL) {
-      return 'https://staging.modrinth.com'
+      return 'https://dev.nineMinecraft.com'
     } else {
-      return 'https://modrinth.com'
+      return 'https://nineMinecraft.com'
     }
   } else {
     return 'http://localhost:3000'

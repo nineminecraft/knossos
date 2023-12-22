@@ -6,7 +6,7 @@
         :link-stack="[{ href: '/dashboard/revenue', label: 'Revenue' }]"
       />
       <h2>Transfer history</h2>
-      <p>All of your withdrawals from your Modrinth balance will be listed here:</p>
+      <p>All of your withdrawals from your nineMinecraft balance will be listed here:</p>
       <div v-for="payout in sortedPayouts" :key="payout.id" class="universal-card recessed payout">
         <div class="platform">
           <PayPalIcon v-if="payout.method === 'paypal'" />
@@ -59,7 +59,7 @@ import TremendousIcon from '~/assets/images/external/tremendous.svg'
 import VenmoIcon from '~/assets/images/external/venmo-small.svg'
 
 useHead({
-  title: 'Transfer history - Modrinth',
+  title: 'Transfer history - nineMinecraft',
 })
 
 const data = await useNuxtApp()

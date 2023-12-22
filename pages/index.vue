@@ -73,7 +73,7 @@
           <div class="blob-text">
             <h3>Find what you want, quickly and easily</h3>
             <p>
-              Modrinth's lightning-fast search and powerful filters let you find what you want as
+              nineMinecraft's lightning-fast search and powerful filters let you find what you want as
               you type.
             </p>
           </div>
@@ -190,8 +190,8 @@
           <div class="blob-text">
             <h3>Play with your favorite launcher</h3>
             <p>
-              Modrinth's open-source API lets launchers add deep integration with Modrinth. You can
-              use Modrinth through
+              nineMinecraft's open-source API lets launchers add deep integration with nineMinecraft. You can
+              use nineMinecraft through
               <nuxt-link class="title-link" to="/app">our own app</nuxt-link> and some of the most
               popular launchers like ATLauncher, MultiMC, and Prism Launcher.
             </p>
@@ -401,7 +401,7 @@
           </div>
           <h3>Constantly Evolving</h3>
           <p>
-            Get the best modding experience possible with constant updates from the Modrinth team
+            Get the best modding experience possible with constant updates from the nineMinecraft team
           </p>
         </div>
       </div>
@@ -492,7 +492,7 @@
       <div class="overlay">
         <h2 class="main-header">
           Read more about <br />
-          <strong class="main-header-strong">Modrinth</strong>
+          <strong class="main-header-strong">nineMinecraft</strong>
         </h2>
         <a
           href="https://blog.modrinth.com/?utm_source=website&utm_source=homepage&utm_campaign=newsletter"

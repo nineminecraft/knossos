@@ -9,7 +9,7 @@
       <span class="label">
         <span class="label__title">Invite a member</span>
         <span class="label__description">
-          Enter the Modrinth username of the person you'd like to invite to be a member of this
+          Enter the nineMinecraft username of the person you'd like to invite to be a member of this
           project.
         </span>
       </span>

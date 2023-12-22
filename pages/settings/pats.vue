@@ -88,8 +88,8 @@
       </button>
     </div>
     <p>
-      PATs can be used to access Modrinth's API. For more information, see
-      <a class="text-link" href="https://docs.modrinth.com">Modrinth's API documentation</a>. They
+      PATs can be used to access nineMinecraft's API. For more information, see
+      <a class="text-link" href="https://docs.nineMinecraft.com">nineMinecraft's API documentation</a>. They
       can be created and revoked at any time.
     </p>
     <div v-for="(pat, index) in pats" :key="pat.id" class="universal-card recessed token">
@@ -172,7 +172,7 @@ definePageMeta({
 })
 
 useHead({
-  title: 'PATs - Modrinth',
+  title: 'PATs - nineMinecraft',
 })
 
 const scopes = [

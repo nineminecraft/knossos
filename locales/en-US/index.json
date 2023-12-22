@@ -63,10 +63,10 @@
     "message": "You don't have any projects.\nWould you like to <create-link>create one</create-link>?"
   },
   "profile.meta.description": {
-    "message": "Download {username}'s projects on Modrinth"
+    "message": "Download {username}'s projects on nineMinecraft"
   },
   "profile.meta.description-with-bio": {
-    "message": "{bio} - Download {username}'s projects on Modrinth"
+    "message": "{bio} - Download {username}'s projects on nineMinecraft"
   },
   "profile.stats.downloads": {
     "message": "{count, plural, one {<stat>{count}</stat> download} other {<stat>{count}</stat> downloads}}"
@@ -165,7 +165,7 @@
     "message": "Revoke session"
   },
   "settings.sessions.description": {
-    "message": "Here are all the devices that are currently logged in with your Modrinth account. You can log out of each one individually.\n\nIf you see an entry you don't recognize, log out of that device and change your Modrinth account password immediately."
+    "message": "Here are all the devices that are currently logged in with your nineMinecraft account. You can log out of each one individually.\n\nIf you see an entry you don't recognize, log out of that device and change your nineMinecraft account password immediately."
   },
   "settings.sessions.label.created-at": {
     "message": "Created {ago}"

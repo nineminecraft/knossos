@@ -372,7 +372,7 @@ export default defineNuxtComponent({
     }
   },
   head: {
-    title: 'Projects - Modrinth',
+    title: 'Projects - nineMinecraft',
   },
   created() {
     this.UPLOAD_VERSION = 1 << 0

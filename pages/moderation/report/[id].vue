@@ -12,6 +12,6 @@ const auth = await useAuth()
 const route = useRoute()
 
 useHead({
-  title: `Report ${route.params.id} - Modrinth`,
+  title: `Report ${route.params.id} - nineMinecraft`,
 })
 </script>

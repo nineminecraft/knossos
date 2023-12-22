@@ -11,18 +11,18 @@
       </p>
       <div v-else-if="isUnderReview(project)">
         <p>
-          Modrinth's team of content moderators work hard to review all submitted projects.
+          nineMinecraft's team of content moderators work hard to review all submitted projects.
           Typically, you can expect a new project to be reviewed within 24 to 48 hours. Please keep
           in mind that larger projects, especially modpacks, may require more time to review.
           Certain holidays or events may also lead to delays depending on moderator availability.
-          Modrinth's moderators will leave a message below if they have any questions or concerns
+          nineMinecraft's moderators will leave a message below if they have any questions or concerns
           for you. If your review has taken more than 48 hours, check our Discord or social media
           for moderation delays.
         </p>
       </div>
       <template v-else-if="isRejected(project)">
         <p>
-          Your project does not currently meet Modrinth's
+          Your project does not currently meet nineMinecraft's
           <nuxt-link to="/legal/rules" class="text-link" target="_blank">content rules</nuxt-link>
           and the moderators have requested you make changes before it can be approved. Read the
           messages from the moderators below and address their comments before resubmitting.
@@ -63,7 +63,7 @@
     <section id="messages" class="universal-card">
       <h2>Messages</h2>
       <p>
-        This is a private conversation thread with the Modrinth moderators. They may message you
+        This is a private conversation thread with the nineMinecraft moderators. They may message you
         with issues concerning this project. Additionally, you are welcome to start a discussion
         here regarding this project and its status.
       </p>

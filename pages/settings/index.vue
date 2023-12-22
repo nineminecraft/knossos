@@ -104,7 +104,7 @@
         <label for="external-links-new-tab">
           <span class="label__title">Open external links in new tab</span>
           <span class="label__description">
-            Make links which go outside of Modrinth open in a new tab. No matter this setting, links
+            Make links which go outside of nineMinecraft open in a new tab. No matter this setting, links
             on the same domain and in Markdown descriptions will open in the same tab, and links on
             ads and edit pages will open in a new tab.
           </span>
@@ -119,9 +119,9 @@
       </div>
       <div class="adjacent-input small">
         <label for="modrinth-app-promos">
-          <span class="label__title">Hide Modrinth App promotions</span>
+          <span class="label__title">Hide nineMinecraft App promotions</span>
           <span class="label__description">
-            Hides the "Get Modrinth App" buttons from primary navigation. The Modrinth App page can
+            Hides the "Get nineMinecraft App" buttons from primary navigation. The nineMinecraft App page can
             still be found on the landing page or in the footer.
           </span>
         </label>
@@ -156,7 +156,7 @@ export default defineNuxtComponent({
     }
   },
   head: {
-    title: 'Display settings - Modrinth',
+    title: 'Display settings - nineMinecraft',
   },
   computed: {
     listTypes() {

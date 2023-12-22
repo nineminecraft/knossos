@@ -11,7 +11,7 @@
 <script>
 export default defineNuxtComponent({
   head: {
-    title: 'Analytics - Modrinth',
+    title: 'Analytics - nineMinecraft',
   },
 })
 </script>

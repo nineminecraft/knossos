@@ -73,7 +73,7 @@
 
     <h3>Amount</h3>
     <p>
-      You are initiating a transfer of your revenue from Modrinth's Creator Monetization Program.
+      You are initiating a transfer of your revenue from nineMinecraft's Creator Monetization Program.
       How much of your
       <strong>{{ $formatMoney(auth.user.payout_data.balance) }}</strong> balance would you like to
       transfer to {{ selectedMethod.name }}?

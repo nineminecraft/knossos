@@ -115,7 +115,7 @@ import NotificationItem from '~/components/ui/NotificationItem.vue'
 import { fetchNotifications, groupNotifications } from '~/helpers/notifications.js'
 
 useHead({
-  title: 'Dashboard - Modrinth',
+  title: 'Dashboard - nineMinecraft',
 })
 
 const auth = await useAuth()

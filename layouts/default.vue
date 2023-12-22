@@ -5,11 +5,11 @@
       class="email-nag"
     >
       <template v-if="auth.user.email">
-        <span>For security purposes, please verify your email address on Modrinth.</span>
+        <span>For security purposes, please verify your email address on nineMinecraft.</span>
         <button class="btn" @click="resendVerifyEmail">Re-send verification email</button>
       </template>
       <template v-else>
-        <span>For security purposes, please enter your email on Modrinth.</span>
+        <span>For security purposes, please enter your email on nineMinecraft.</span>
         <nuxt-link class="btn" to="/settings/account">
           <SettingsIcon />
           Visit account settings
@@ -19,7 +19,7 @@
     <header class="site-header" role="presentation">
       <section class="navbar columns" role="navigation">
         <section class="logo column" role="presentation">
-          <NuxtLink class="button-base" to="/" aria-label="Modrinth home page">
+          <NuxtLink class="button-base" to="/" aria-label="nineMinecraft home page">
             <BrandTextLogo aria-hidden="true" class="text-logo" />
           </NuxtLink>
         </section>
@@ -108,7 +108,7 @@
                     to="/app"
                   >
                     <DownloadIcon class="icon" />
-                    <span class="title">Get Modrinth App</span>
+                    <span class="title">Get nineMinecraft App</span>
                   </NuxtLink>
                   <hr class="divider" />
                   <button class="item button-transparent" @click="logoutUser()">
@@ -126,7 +126,7 @@
                   class="btn btn-outline btn-primary app-btn"
                   to="/app"
                 >
-                  <DownloadIcon /> Get Modrinth App
+                  <DownloadIcon /> Get nineMinecraft App
                 </nuxt-link>
               </section>
             </section>
@@ -281,13 +281,13 @@
       <slot id="main" />
     </main>
     <footer>
-      <div class="logo-info" role="region" aria-label="Modrinth information">
+      <div class="logo-info" role="region" aria-label="nineMinecraft information">
         <BrandTextLogo aria-hidden="true" class="text-logo" @click="developerModeIncrement()" />
         <p>
-          Modrinth is
+          nineMinecraft is
           <a
             :target="$external()"
-            href="https://github.com/modrinth"
+            href="https://github.com/nineMinecraft"
             class="text-link"
             rel="noopener"
           >
@@ -317,30 +317,30 @@
         <nuxt-link to="/legal/terms"> Terms</nuxt-link>
         <nuxt-link to="/legal/privacy"> Privacy</nuxt-link>
         <nuxt-link to="/legal/rules"> Rules</nuxt-link>
-        <a :target="$external()" href="https://careers.modrinth.com"
+        <a :target="$external()" href="https://careers.nineMinecraft.com"
           >Careers <span class="count-bubble">1</span></a
         >
       </div>
       <div class="links links-2" role="region" aria-label="Resources">
         <h4 aria-hidden="true">Resources</h4>
-        <a :target="$external()" href="https://blog.modrinth.com">Blog</a>
-        <a :target="$external()" href="https://docs.modrinth.com">Docs</a>
-        <a :target="$external()" href="https://status.modrinth.com">Status</a>
-        <a rel="noopener" :target="$external()" href="https://github.com/modrinth">GitHub</a>
+        <a :target="$external()" href="https://blog.nineMinecraft.com">Blog</a>
+        <a :target="$external()" href="https://docs.nineMinecraft.com">Docs</a>
+        <a :target="$external()" href="https://status.nineMinecraft.com">Status</a>
+        <a rel="noopener" :target="$external()" href="https://github.com/nineMinecraft">GitHub</a>
       </div>
       <div class="links links-3" role="region" aria-label="Interact">
         <h4 aria-hidden="true">Interact</h4>
-        <a rel="noopener" :target="$external()" href="https://discord.modrinth.com"> Discord </a>
-        <a rel="noopener" :target="$external()" href="https://twitter.com/modrinth"> Twitter </a>
-        <a rel="noopener" :target="$external()" href="https://floss.social/@modrinth"> Mastodon </a>
-        <a rel="noopener" :target="$external()" href="https://crowdin.com/project/modrinth">
+        <a rel="noopener" :target="$external()" href="https://discord.nineMinecraft.com"> Discord </a>
+        <a rel="noopener" :target="$external()" href="https://twitter.com/nineMinecraft"> Twitter </a>
+        <a rel="noopener" :target="$external()" href="https://floss.social/@nineMinecraft"> Mastodon </a>
+        <a rel="noopener" :target="$external()" href="https://crowdin.com/project/nineMinecraft">
           Crowdin
         </a>
       </div>
       <div class="buttons">
         <nuxt-link class="btn btn-outline btn-primary" to="/app">
           <DownloadIcon aria-hidden="true" />
-          Get Modrinth App
+          Get nineMinecraft App
         </nuxt-link>
         <button class="iconified-button raised-button" @click="changeTheme">
           <MoonIcon v-if="$colorMode.value === 'light'" aria-hidden="true" />
@@ -400,19 +400,19 @@ useHead({
 })
 
 const description =
-  'Download Minecraft mods, plugins, datapacks, shaders, resourcepacks, and modpacks on Modrinth. ' +
-  'Discover and publish projects on Modrinth with a modern, easy to use interface and API.'
+  'Download Minecraft mods, plugins, datapacks, shaders, resourcepacks, and modpacks on nineMinecraft. ' +
+  'Discover and publish projects on nineMinecraft with a modern, easy to use interface and API.'
 
 useSeoMeta({
-  title: 'Modrinth',
+  title: 'nineMinecraft',
   description,
-  publisher: 'Modrinth',
+  publisher: 'nineMinecraft',
   themeColor: [{ color: '#1bd96a' }],
   colorScheme: 'dark light',
 
   // OpenGraph
-  ogTitle: 'Modrinth',
-  ogSiteName: 'Modrinth',
+  ogTitle: 'nineMinecraft',
+  ogSiteName: 'nineMinecraft',
   ogDescription: 'Discover and publish Minecraft content!',
   ogType: 'website',
   ogImage: 'https://cdn.modrinth.com/modrinth-new.png',

@@ -309,7 +309,7 @@ const props = defineProps({
 })
 
 const title = `${props.project.title} - Gallery`
-const description = `View ${props.project.gallery.length} images of ${props.project.title} on Modrinth.`
+const description = `View ${props.project.gallery.length} images of ${props.project.title} on nineMinecraft.`
 
 useSeoMeta({
   title,

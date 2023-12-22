@@ -335,7 +335,7 @@
           :tags="tags"
         />
         <MessageBanner v-else-if="project.status === 'withheld'" message-type="warning">
-          {{ project.title }} has been removed from search by Modrinth's moderators. Please use
+          {{ project.title }} has been removed from search by nineMinecraft's moderators. Please use
           {{ project.title }} at your own risk.
         </MessageBanner>
         <MessageBanner v-if="project.status === 'archived'" message-type="warning">
@@ -344,7 +344,7 @@
         </MessageBanner>
         <MessageBanner v-if="project.project_type === 'modpack'" message-type="information">
           To install {{ project.title }}, download
-          <nuxt-link to="/app">the Modrinth App</nuxt-link>. For instructions with other launchers,
+          <nuxt-link to="/app">the nineMinecraft App</nuxt-link>. For instructions with other launchers,
           please see
           <a href="https://docs.modrinth.com/docs/modpacks/playing_modpacks/" :target="$external()"
             >our documentation</a
@@ -634,7 +634,7 @@
               target="_blank"
             >
               <ExternalIcon aria-hidden="true" />
-              View on modrinth.com
+              View on nineMinecraft.com
             </a>
             <a
               v-else-if="
@@ -649,7 +649,7 @@
               target="_blank"
             >
               <ExternalIcon aria-hidden="true" />
-              View on staging.modrinth.com
+              View on staging.nineMinecraft.com
             </a>
           </div>
         </div>
@@ -866,7 +866,7 @@ const projectTypeDisplay = data.$formatProjectType(
 const title = `${project.value.title} - Minecraft ${projectTypeDisplay}`
 const description = `${project.value.description} - Download the Minecraft ${projectTypeDisplay} ${
   project.value.title
-} by ${members.value.find((x) => x.role === 'Owner').user.username} on Modrinth`
+} by ${members.value.find((x) => x.role === 'Owner').user.username} on nineMinecraft`
 
 if (!route.name.startsWith('type-id-settings')) {
   useSeoMeta({

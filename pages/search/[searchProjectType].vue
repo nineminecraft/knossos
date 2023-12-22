@@ -7,7 +7,7 @@
     }"
   >
     <Head>
-      <Title>Search {{ projectType.display }}s - Modrinth</Title>
+      <Title>Search {{ projectType.display }}s - nineMinecraft</Title>
     </Head>
     <aside
       :class="{
@@ -366,7 +366,7 @@ const ogTitle = computed(
 )
 const description = computed(
   () =>
-    `Search and browse thousands of Minecraft ${projectType.value.display}s on Modrinth with instant, accurate search results. Our filters help you quickly find the best Minecraft ${projectType.value.display}s.`
+    `Search and browse thousands of Minecraft ${projectType.value.display}s on nineMinecraft with instant, accurate search results. Our filters help you quickly find the best Minecraft ${projectType.value.display}s.`
 )
 
 useSeoMeta({

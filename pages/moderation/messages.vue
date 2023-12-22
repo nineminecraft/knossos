@@ -17,7 +17,7 @@
 import ThreadSummary from '~/components/ui/thread/ThreadSummary.vue'
 
 useHead({
-  title: 'Moderation inbox - Modrinth',
+  title: 'Moderation inbox - nineMinecraft',
 })
 
 const auth = await useAuth()

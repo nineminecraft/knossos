@@ -68,7 +68,7 @@ import MailIcon from 'assets/icons/auth/mail.svg'
 import KeyIcon from 'assets/icons/auth/key.svg'
 
 useHead({
-  title: 'Reset Password - Modrinth',
+  title: 'Reset Password - nineMinecraft',
 })
 
 const auth = await useAuth()

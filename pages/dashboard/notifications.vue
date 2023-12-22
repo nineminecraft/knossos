@@ -53,7 +53,7 @@ import CheckCheckIcon from '~/assets/images/utils/check-check.svg'
 import Breadcrumbs from '~/components/ui/Breadcrumbs.vue'
 
 useHead({
-  title: 'Notifications - Modrinth',
+  title: 'Notifications - nineMinecraft',
 })
 
 const auth = await useAuth()

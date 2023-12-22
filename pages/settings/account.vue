@@ -3,7 +3,7 @@
     <ModalConfirm
       ref="modal_confirm"
       title="Are you sure you want to delete your account?"
-      description="This will **immediately delete all of your user data and follows**. This will not delete your projects. Deleting your account cannot be reversed.<br><br>If you need help with your account, get support on the [Modrinth Discord](https://discord.modrinth.com)."
+      description="This will **immediately delete all of your user data and follows**. This will not delete your projects. Deleting your account cannot be reversed.<br><br>If you need help with your account, get support on the [nineMinecraft Discord](https://discord.nineMinecraft.com)."
       proceed-label="Delete this account"
       :confirmation-text="auth.user.username"
       :has-to-type="true"
@@ -178,7 +178,7 @@
               v-if="twoFactorSecret"
               :value="`otpauth://totp/${encodeURIComponent(
                 auth.user.email
-              )}?secret=${twoFactorSecret}&issuer=Modrinth`"
+              )}?secret=${twoFactorSecret}&issuer=nineMinecraft`"
               :size="250"
               :margin="2"
               level="H"
@@ -419,7 +419,7 @@ import ModalConfirm from '~/components/ui/ModalConfirm.vue'
 import Modal from '~/components/ui/Modal.vue'
 
 useHead({
-  title: 'Account settings - Modrinth',
+  title: 'Account settings - nineMinecraft',
 })
 
 definePageMeta({

@@ -153,5 +153,5 @@ export const ScopeDescriptions = {
   ORGANIZATION_READ: 'Read organizations',
   ORGANIZATION_WRITE: 'Write to organizations',
   ORGANIZATION_DELETE: 'Delete organizations',
-  SESSION_ACCESS: 'Access modrinth-issued sessions',
+  SESSION_ACCESS: 'Access nineMinecraft-issued sessions',
 }

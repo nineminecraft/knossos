@@ -43,7 +43,7 @@ if (process.client) {
   await initUserFollows()
 }
 
-useHead({ title: 'Followed review - Modrinth' })
+useHead({ title: 'Followed review - nineMinecraft' })
 definePageMeta({
   middleware: 'auth',
 })
