@@ -604,7 +604,6 @@ const rows = shallowRef([
     padding-top: 10rem;
     padding-bottom: 5rem;
 
-    background: var(--landing-maze-gradient-bg);
     background-size: cover;
     background-blend-mode: multiply;
 
