@@ -404,8 +404,20 @@ const rows = shallowRef([
 </script>
 
 <style lang="scss" scoped>
-.landing-hero {
+.landing-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
   background-image: var(--landing-maze-bg);
+  height: 100%;
+  width: 100%;
+  filter: opacity(50%);
+}
+
+.landing-hero {
+  backdrop-filter: blur(20px);
   background-size: cover;
   object-fit: contain;
   padding: 6rem 1rem 12rem 1rem;
