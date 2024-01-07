@@ -182,7 +182,7 @@ export default defineNuxtConfig({
     async 'vintl:extendOptions'(opts) {
       opts.locales ??= []
 
-      const isProduction = getDomain() === 'https://nineMinecraft.com'
+      const isProduction = getDomain() === 'https://dev.nineMinecraft.com'
 
       const resolveCompactNumberDataImport = await (async () => {
         const compactNumberLocales: string[] = []
@@ -258,13 +258,13 @@ export default defineNuxtConfig({
               locale.meta[key] = meta[key].message
             }
           } else {
-            ;(locale.resources ??= {})[fileName] = `./${localeFile}`
+            ; (locale.resources ??= {})[fileName] = `./${localeFile}`
           }
         }
 
         const categoryOverride = localesCategoriesOverrides[tag]
         if (categoryOverride != null) {
-          ;(locale.meta ??= {}).category = categoryOverride
+          ; (locale.meta ??= {}).category = categoryOverride
         }
 
         const omorphiaLocaleData = resolveOmorphiaLocaleImport(tag)
@@ -274,7 +274,7 @@ export default defineNuxtConfig({
 
         const cnDataImport = resolveCompactNumberDataImport(tag)
         if (cnDataImport != null) {
-          ;(locale.additionalImports ??= []).push({
+          ; (locale.additionalImports ??= []).push({
             from: cnDataImport,
             resolve: false,
           })
