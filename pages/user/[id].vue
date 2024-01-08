@@ -3,12 +3,7 @@
     <ModalCreation ref="modal_creation" />
     <div class="user-header-wrapper">
       <div class="user-header">
-        <Avatar
-          :src="previewImage ? previewImage : user.avatar_url"
-          size="md"
-          circle
-          :alt="user.username"
-        />
+        <Avatar :src="previewImage ? previewImage : user.avatar_url" size="md" circle :alt="user.username" />
         <h1 class="username">
           {{ user.username }}
         </h1>
@@ -21,30 +16,17 @@
             {{ user.username }}
           </h1>
           <div class="card__overlay">
-            <FileInput
-              v-if="isEditing"
-              :max-size="262144"
-              :show-icon="true"
+            <FileInput v-if="isEditing" :max-size="262144" :show-icon="true"
               :prompt="formatMessage(messages.profileUploadAvatarInput)"
-              accept="image/png,image/jpeg,image/gif,image/webp"
-              class="choose-image iconified-button"
-              @change="showPreviewImage"
-            >
+              accept="image/png,image/jpeg,image/gif,image/webp" class="choose-image iconified-button"
+              @change="showPreviewImage">
               <UploadIcon />
             </FileInput>
-            <button
-              v-else-if="auth.user && auth.user.id === user.id"
-              class="iconified-button"
-              @click="isEditing = true"
-            >
+            <button v-else-if="auth.user && auth.user.id === user.id" class="iconified-button" @click="isEditing = true">
               <EditIcon />
               {{ formatMessage(commonMessages.editButton) }}
             </button>
-            <button
-              v-else-if="auth.user"
-              class="iconified-button"
-              @click="() => reportUser(user.id)"
-            >
+            <button v-else-if="auth.user" class="iconified-button" @click="() => reportUser(user.id)">
               <ReportIcon aria-hidden="true" />
               {{ formatMessage(messages.profileReportButton) }}
             </button>
@@ -71,17 +53,13 @@
               </div>
             </div>
             <div class="button-group">
-              <button
-                class="iconified-button"
-                @click="
-                  () => {
-                    isEditing = false
-                    user = JSON.parse(JSON.stringify(auth.user))
-                    previewImage = null
-                    icon = null
-                  }
-                "
-              >
+              <button class="iconified-button" @click="() => {
+                isEditing = false
+                user = JSON.parse(JSON.stringify(auth.user))
+                previewImage = null
+                icon = null
+              }
+                ">
                 <CrossIcon /> {{ formatMessage(commonMessages.cancelButton) }}
               </button>
               <button class="iconified-button brand-button" @click="saveChanges">
@@ -99,10 +77,8 @@
             <div class="primary-stat">
               <DownloadIcon class="primary-stat__icon" aria-hidden="true" />
               <div class="primary-stat__text">
-                <IntlFormatted
-                  :message-id="messages.profileDownloadsStats"
-                  :values="{ count: formatCompactNumber(sumDownloads) }"
-                >
+                <IntlFormatted :message-id="messages.profileDownloadsStats"
+                  :values="{ count: formatCompactNumber(sumDownloads) }">
                   <template #stat="{ children }">
                     <span class="primary-stat__counter">
                       <component :is="() => normalizeChildren(children)" />
@@ -114,10 +90,8 @@
             <div class="primary-stat">
               <HeartIcon class="primary-stat__icon" aria-hidden="true" />
               <div class="primary-stat__text">
-                <IntlFormatted
-                  :message-id="messages.profileProjectsFollowersStats"
-                  :values="{ count: formatCompactNumber(sumFollows) }"
-                >
+                <IntlFormatted :message-id="messages.profileProjectsFollowersStats"
+                  :values="{ count: formatCompactNumber(sumFollows) }">
                   <template #stat="{ children }">
                     <span class="primary-stat__counter">
                       <component :is="() => normalizeChildren(children)" />
@@ -128,15 +102,11 @@
             </div>
             <div class="stats-block__item secondary-stat">
               <SunriseIcon class="secondary-stat__icon" aria-hidden="true" />
-              <span
-                v-tooltip="
-                  formatMessage(commonMessages.dateAtTimeTooltip, {
-                    date: new Date(user.created),
-                    time: new Date(user.created),
-                  })
-                "
-                class="secondary-stat__text date"
-              >
+              <span v-tooltip="formatMessage(commonMessages.dateAtTimeTooltip, {
+                date: new Date(user.created),
+                time: new Date(user.created),
+              })
+                " class="secondary-stat__text date">
                 {{
                   formatMessage(messages.profileJoinedAt, { ago: formatRelativeTime(user.created) })
                 }}
@@ -157,90 +127,55 @@
         </div>
       </div>
       <div class="normal-page__content">
-        <Promotion />
         <nav class="navigation-card">
-          <NavRow
-            :links="[
-              {
-                label: formatMessage(commonMessages.allProjectType),
-                href: `/user/${user.username}`,
-              },
-              ...projectTypes.map((x) => {
-                return {
-                  label: formatMessage(getProjectTypeMessage(x, true)),
-                  href: `/user/${user.username}/${x}s`,
-                }
-              }),
-            ]"
-          />
+          <NavRow :links="[
+            {
+              label: formatMessage(commonMessages.allProjectType),
+              href: `/user/${user.username}`,
+            },
+            ...projectTypes.map((x) => {
+              return {
+                label: formatMessage(getProjectTypeMessage(x, true)),
+                href: `/user/${user.username}/${x}s`,
+              }
+            }),
+          ]" />
           <div class="input-group">
-            <NuxtLink
-              v-if="auth.user && auth.user.id === user.id"
-              class="iconified-button"
-              to="/dashboard/projects"
-            >
+            <NuxtLink v-if="auth.user && auth.user.id === user.id" class="iconified-button" to="/dashboard/projects">
               <SettingsIcon />
               {{ formatMessage(messages.profileManageProjectsButton) }}
             </NuxtLink>
-            <button
-              v-tooltip="
-                formatMessage(commonMessages[`${cosmetics.searchDisplayMode.user}InputView`])
-              "
-              :aria-label="
-                formatMessage(commonMessages[`${cosmetics.searchDisplayMode.user}InputView`])
-              "
-              class="square-button"
-              @click="cycleSearchDisplayMode()"
-            >
+            <button v-tooltip="formatMessage(commonMessages[`${cosmetics.searchDisplayMode.user}InputView`])
+              " :aria-label="formatMessage(commonMessages[`${cosmetics.searchDisplayMode.user}InputView`])
+    " class="square-button" @click="cycleSearchDisplayMode()">
               <GridIcon v-if="cosmetics.searchDisplayMode.user === 'grid'" />
               <ImageIcon v-else-if="cosmetics.searchDisplayMode.user === 'gallery'" />
               <ListIcon v-else />
             </button>
           </div>
         </nav>
-        <div
-          v-if="projects.length > 0"
-          class="project-list"
-          :class="'display-mode--' + cosmetics.searchDisplayMode.user"
-        >
-          <ProjectCard
-            v-for="project in (route.params.projectType !== undefined
-              ? projects.filter(
-                  (x) =>
-                    x.project_type ===
-                    route.params.projectType.substr(0, route.params.projectType.length - 1)
-                )
-              : projects
+        <div v-if="projects.length > 0" class="project-list" :class="'display-mode--' + cosmetics.searchDisplayMode.user">
+          <ProjectCard v-for="project in (route.params.projectType !== undefined
+            ? projects.filter(
+              (x) =>
+                x.project_type ===
+                route.params.projectType.substr(0, route.params.projectType.length - 1)
             )
+            : projects
+          )
+            .slice()
+            .sort((a, b) => b.downloads - a.downloads)" :id="project.slug || project.id" :key="project.id"
+            :name="project.title" :display="cosmetics.searchDisplayMode.user" :featured-image="project.gallery
               .slice()
-              .sort((a, b) => b.downloads - a.downloads)"
-            :id="project.slug || project.id"
-            :key="project.id"
-            :name="project.title"
-            :display="cosmetics.searchDisplayMode.user"
-            :featured-image="
-              project.gallery
-                .slice()
-                .sort((a, b) => b.featured - a.featured)
-                .map((x) => x.url)[0]
-            "
-            :description="project.description"
-            :created-at="project.published"
-            :updated-at="project.updated"
-            :downloads="project.downloads.toString()"
-            :follows="project.followers.toString()"
-            :icon-url="project.icon_url"
-            :categories="project.categories"
-            :client-side="project.client_side"
-            :server-side="project.server_side"
-            :status="
-              auth.user && (auth.user.id === user.id || tags.staffRoles.includes(auth.user.role))
-                ? project.status
-                : null
-            "
-            :type="project.project_type"
-            :color="project.color"
-          />
+              .sort((a, b) => b.featured - a.featured)
+              .map((x) => x.url)[0]
+              " :description="project.description" :created-at="project.published" :updated-at="project.updated"
+            :downloads="project.downloads.toString()" :follows="project.followers.toString()" :icon-url="project.icon_url"
+            :categories="project.categories" :client-side="project.client_side" :server-side="project.server_side"
+            :status="auth.user && (auth.user.id === user.id || tags.staffRoles.includes(auth.user.role))
+              ? project.status
+              : null
+              " :type="project.project_type" :color="project.color" />
         </div>
         <div v-else class="error">
           <UpToDate class="icon" /><br />
@@ -260,7 +195,7 @@
   </div>
 </template>
 <script setup>
-import { Promotion } from 'omorphia'
+//import { Promotion } from 'omorphia'
 import ProjectCard from '~/components/ui/ProjectCard.vue'
 import Badge from '~/components/ui/Badge.vue'
 import { reportUser } from '~/utils/report-helpers.ts'
@@ -407,9 +342,9 @@ const title = `${user.value.username} - Modrinth`
 const description = ref(
   user.value.bio
     ? `${formatMessage(messages.profileMetaDescriptionWithBio, {
-        bio: user.value.bio,
-        username: user.value.username,
-      })}`
+      bio: user.value.bio,
+      username: user.value.username,
+    })}`
     : `${formatMessage(messages.profileMetaDescription, { username: user.value.username })}`
 )
 
@@ -467,8 +402,7 @@ async function saveChanges() {
   try {
     if (icon.value) {
       await useBaseFetch(
-        `user/${auth.value.user.id}/icon?ext=${
-          icon.value.type.split('/')[icon.value.type.split('/').length - 1]
+        `user/${auth.value.user.id}/icon?ext=${icon.value.type.split('/')[icon.value.type.split('/').length - 1]
         }`,
         {
           method: 'PATCH',
