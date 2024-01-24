@@ -411,14 +411,14 @@
               " class="iconified-button" :href="`https://modrinth.com/${project.project_type}/${project.slug ? project.slug : project.id
     }`" rel="noopener nofollow" target="_blank">
               <ExternalIcon aria-hidden="true" />
-              View on nineMinecraft.com
+              View on modrinth.com
             </a>
-            <a v-else-if="config.public.apiBaseUrl.startsWith('https://staging-api.modrinth.com') &&
-              config.public.siteUrl !== 'https://staging.modrinth.com'
-              " class="iconified-button" :href="`https://staging.modrinth.com/${project.project_type}/${project.slug ? project.slug : project.id
+            <a v-else-if="config.public.apiBaseUrl.startsWith('https://api.modrinth.com') &&
+              config.public.siteUrl !== 'https://modrinth.com'
+              " class="iconified-button" :href="`https://modrinth.com/${project.project_type}/${project.slug ? project.slug : project.id
     }`" rel="noopener nofollow" target="_blank">
               <ExternalIcon aria-hidden="true" />
-              View on staging.nineMinecraft.com
+              View on modrinth.com
             </a>
           </div>
         </div>
