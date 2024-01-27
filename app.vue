@@ -1,4 +1,5 @@
 <template>
+  <meta name="darkreader-lock">
   <NuxtLayout>
     <ModrinthLoadingIndicator />
     <Notifications />

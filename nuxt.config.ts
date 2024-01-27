@@ -9,6 +9,7 @@ import { match as matchLocale } from '@formatjs/intl-localematcher'
 import { consola } from 'consola'
 
 const STAGING_API_URL = 'https://staging-api.modrinth.com/v2/'
+//const STAGING_API_URL = 'https://api.modrinth.com/v2/'
 
 const preloadedFonts = [
   'inter/Inter-Regular.woff2',
@@ -182,7 +183,8 @@ export default defineNuxtConfig({
     async 'vintl:extendOptions'(opts) {
       opts.locales ??= []
 
-      const isProduction = getDomain() === 'https://dev.nineMinecraft.com'
+      const isProduction = getDomain() === 'https://dev.nineminecraft.com'
+      console.log(getDomain())
 
       const resolveCompactNumberDataImport = await (async () => {
         const compactNumberLocales: string[] = []
@@ -390,11 +392,12 @@ function getDomain() {
     } else if (process.env.HEROKU_APP_NAME) {
       return `https://${process.env.HEROKU_APP_NAME}.herokuapp.com`
     } else if (process.env.VERCEL_URL) {
-      return `https://${process.env.VERCEL_URL}`
+      //return `https://${process.env.VERCEL_URL}`
+      return 'https://dev.nineminecraft.com'
     } else if (getApiUrl() === STAGING_API_URL) {
-      return 'https://dev.nineMinecraft.com'
+      return 'https://dev.nineminecraft.com'
     } else {
-      return 'https://nineMinecraft.com'
+      return 'https://nineminecraft.com'
     }
   } else {
     return 'http://localhost:3000'
