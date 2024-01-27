@@ -354,7 +354,6 @@
         <nuxt-link v-for="member in members" :key="member.user.id" class="team-member columns button-transparent"
           :to="'/user/' + member.user.username">
           <Avatar :src="member.avatar_url" :alt="member.username" size="sm" circle />
-
           <div class="member-info">
             <p class="name">{{ member.name }}</p>
             <p class="role">
@@ -422,6 +421,17 @@
             </a>
           </div>
         </div>
+
+    
+          
+            
+    
+
+          
+          Expand Down
+    
+    
+  
       </div>
     </div>
   </div>
@@ -470,16 +480,13 @@ import VersionIcon from '~/assets/images/utils/version.svg'
 import { renderString } from '~/helpers/parse.js'
 import { reportProject } from '~/utils/report-helpers.ts'
 import Breadcrumbs from '~/components/ui/Breadcrumbs.vue'
-
 const data = useNuxtApp()
 const route = useRoute()
 const config = useRuntimeConfig()
-
 const auth = await useAuth()
 const user = await useUser()
 const cosmetics = useCosmetics()
 const tags = useTags()
-
 if (
   !route.params.id ||
   !(
@@ -493,7 +500,6 @@ if (
     message: 'The page could not be found',
   })
 }
-
 let project, allMembers, dependencies, featuredVersions, versions
 try {
   ;[
@@ -512,12 +518,10 @@ try {
             project.loaders,
             tags.value
           )
-
           if (process.client && history.state && history.state.overrideProjectType) {
             project.project_type = history.state.overrideProjectType
           }
         }
-
         return project
       },
     }),
@@ -530,7 +534,6 @@ try {
             members[index].avatar_url = it.user.avatar_url
             members[index].name = it.user.username
           })
-
           return members
         },
       }
@@ -545,7 +548,6 @@ try {
       useBaseFetch(`project/${route.params.id}/version`)
     ),
   ])
-
   versions = shallowRef(toRaw(versions))
   featuredVersions = shallowRef(toRaw(featuredVersions))
 } catch (error) {
@@ -555,7 +557,6 @@ try {
     message: 'Project not found',
   })
 }
-
 if (!project.value) {
   throw createError({
     fatal: true,
@@ -563,24 +564,20 @@ if (!project.value) {
     message: 'Project not found',
   })
 }
-
 if (project.value.project_type !== route.params.type || route.params.id !== project.value.slug) {
   let path = route.fullPath.split('/')
   path.splice(0, 3)
   path = path.filter((x) => x)
-
   await navigateTo(
     `/${project.value.project_type}/${project.value.slug}${path.length > 0 ? `/${path.join('/')}` : ''
     }`,
     { redirectCode: 301, replace: true }
   )
 }
-
 const members = ref(allMembers.value.filter((x) => x.accepted))
 const currentMember = ref(
   auth.value.user ? allMembers.value.find((x) => x.user.id === auth.value.user.id) : null
 )
-
 if (
   !currentMember.value &&
   auth.value.user &&
@@ -597,9 +594,7 @@ if (
     name: auth.value.user.username,
   }
 }
-
 versions.value = data.$computeVersions(versions.value, allMembers.value)
-
 // Q: Why do this instead of computing the versions of featuredVersions?
 // A: It will incorrectly generate the version slugs because it doesn't have the full context of
 //    all the versions. For example, if version 1.1.0 for Forge is featured but 1.1.0 for Fabric
@@ -607,17 +602,14 @@ versions.value = data.$computeVersions(versions.value, allMembers.value)
 ///   version
 const featuredIds = featuredVersions.value.map((x) => x.id)
 featuredVersions.value = versions.value.filter((version) => featuredIds.includes(version.id))
-
 featuredVersions.value.sort((a, b) => {
   const aLatest = a.game_versions[a.game_versions.length - 1]
   const bLatest = b.game_versions[b.game_versions.length - 1]
   const gameVersions = tags.value.gameVersions.map((e) => e.version)
   return gameVersions.indexOf(aLatest) - gameVersions.indexOf(bLatest)
 })
-
 const licenseIdDisplay = computed(() => {
   const id = project.value.license.id
-
   if (id === 'LicenseRef-All-Rights-Reserved') {
     return 'ARR'
   } else if (id.includes('LicenseRef')) {
@@ -627,14 +619,12 @@ const licenseIdDisplay = computed(() => {
   }
 })
 const featuredGalleryImage = computed(() => project.value.gallery.find((img) => img.featured))
-
 const projectTypeDisplay = data.$formatProjectType(
   data.$getProjectTypeForDisplay(project.value.project_type, project.value.loaders)
 )
 const title = `${project.value.title} - Minecraft ${projectTypeDisplay}`
 const description = `${project.value.description} - Download the Minecraft ${projectTypeDisplay} ${project.value.title
   } by ${members.value.find((x) => x.role === 'Owner').user.username} on nineMinecraft`
-
 if (!route.name.startsWith('type-id-settings')) {
   useSeoMeta({
     title,
@@ -648,20 +638,14 @@ if (!route.name.startsWith('type-id-settings')) {
         : 'noindex',
   })
 }
-
 async function resetProject() {
   const newProject = await useBaseFetch(`project/${project.value.id}`)
-
   newProject.actualProjectType = JSON.parse(JSON.stringify(newProject.project_type))
-
   newProject.project_type = data.$getProjectTypeForUrl(newProject.project_type, newProject.loaders)
-
   project.value = newProject
 }
-
 async function clearMessage() {
   startLoading()
-
   try {
     await useBaseFetch(`project/${project.value.id}`, {
       method: 'PATCH',
@@ -670,7 +654,6 @@ async function clearMessage() {
         moderation_message_body: null,
       },
     })
-
     project.value.moderator_message = null
   } catch (err) {
     data.$notify({
@@ -680,13 +663,10 @@ async function clearMessage() {
       type: 'error',
     })
   }
-
   stopLoading()
 }
-
 async function setProcessing() {
   startLoading()
-
   try {
     await useBaseFetch(`project/${project.value.id}`, {
       method: 'PATCH',
@@ -694,7 +674,6 @@ async function setProcessing() {
         status: 'processing',
       },
     })
-
     project.value.status = 'processing'
   } catch (err) {
     data.$notify({
@@ -704,10 +683,8 @@ async function setProcessing() {
       type: 'error',
     })
   }
-
   stopLoading()
 }
-
 const modalLicense = ref(null)
 const licenseText = ref('')
 async function getLicenseData() {
@@ -717,31 +694,25 @@ async function getLicenseData() {
   } catch {
     licenseText.value = 'License text could not be retrieved.'
   }
-
   modalLicense.value.show()
 }
-
 async function patchProject(resData, quiet = false) {
   let result = false
   startLoading()
-
   try {
     await useBaseFetch(`project/${project.value.id}`, {
       method: 'PATCH',
       body: resData,
     })
-
     for (const key in resData) {
       project.value[key] = resData[key]
     }
-
     if (resData.license_id) {
       project.value.license.id = resData.license_id
     }
     if (resData.license_url) {
       project.value.license.url = resData.license_url
     }
-
     result = true
     if (!quiet) {
       data.$notify({
@@ -761,16 +732,12 @@ async function patchProject(resData, quiet = false) {
     })
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-
   stopLoading()
-
   return result
 }
-
 async function patchIcon(icon) {
   let result = false
   startLoading()
-
   try {
     await useBaseFetch(
       `project/${project.value.id}/icon?ext=${icon.type.split('/')[icon.type.split('/').length - 1]
@@ -795,14 +762,11 @@ async function patchIcon(icon) {
       text: err.data.description,
       type: 'error',
     })
-
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
-
   stopLoading()
   return result
 }
-
 async function updateMembers() {
   allMembers.value = await useAsyncData(
     `project/${route.params.id}/members`,
@@ -813,35 +777,29 @@ async function updateMembers() {
           members[index].avatar_url = it.user.avatar_url
           members[index].name = it.user.username
         })
-
         return members
       },
     }
   )
 }
-
 const collapsedChecklist = ref(false)
 </script>
 <style lang="scss" scoped>
 .header {
   grid-area: header;
-
   .title {
     overflow-wrap: break-word;
     margin: var(--spacing-card-xs) 0;
     color: var(--color-text-dark);
     font-size: var(--font-size-xl);
   }
-
   .project-type {
     text-decoration: none;
     font-weight: 500;
-
     svg {
       vertical-align: top;
       margin-right: 0.25em;
     }
-
     &:hover,
     &:focus-visible {
       span {
@@ -849,25 +807,20 @@ const collapsedChecklist = ref(false)
       }
     }
   }
-
   .description {
     line-height: 1.3;
     overflow-wrap: break-word;
-
     margin-top: var(--spacing-card-sm);
     margin-bottom: 0.5rem;
     font-size: var(--font-size-nm);
   }
-
   .categories {
     margin: 0.25rem 0;
     color: var(--color-text-secondary);
     font-size: var(--font-size-nm);
   }
-
   .dates {
     margin: 0.75rem 0;
-
     .date {
       color: var(--color-text-secondary);
       font-size: var(--font-size-nm);
@@ -875,11 +828,9 @@ const collapsedChecklist = ref(false)
       align-items: center;
       margin-bottom: 0.25rem;
       cursor: default;
-
       .label {
         margin-right: 0.25rem;
       }
-
       svg {
         height: 1rem;
         margin-right: 0.25rem;
@@ -887,28 +838,23 @@ const collapsedChecklist = ref(false)
     }
   }
 }
-
 .project__header {
   overflow: hidden;
-
   .project__gallery {
     display: none;
   }
-
   &.has-featured-image {
     .project__gallery {
       display: inline-block;
       width: 100%;
       height: 10rem;
       background-color: var(--color-button-bg-active);
-
       img {
         width: 100%;
         height: 10rem;
         object-fit: cover;
       }
     }
-
     .project__icon {
       margin-top: calc(-3rem - var(--spacing-card-lg) - 4px);
       margin-left: -4px;
@@ -916,19 +862,16 @@ const collapsedChecklist = ref(false)
       box-shadow: -2px -2px 0 2px var(--color-raised-bg), 2px -2px 0 2px var(--color-raised-bg);
     }
   }
-
   .project__header__content {
     margin: 0;
     background: none;
     border-radius: unset;
   }
 }
-
 .project-info {
   height: auto;
   overflow: hidden;
 }
-
 .card-header {
   font-size: 1.125rem;
   font-weight: bold;
@@ -937,41 +880,33 @@ const collapsedChecklist = ref(false)
   margin-bottom: 0.3rem;
   width: fit-content;
 }
-
 .featured-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-
   .card-header {
     height: 23px;
   }
-
   .goto-link {
     margin-bottom: 0.3rem;
   }
 }
-
 .featured-version {
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
-
   .download {
     height: 2.5rem;
     width: 2.5rem;
     margin-right: 0.75rem;
-
     svg {
       width: 1.5rem;
       height: 1.5rem;
     }
   }
-
   .info {
     display: flex;
     flex-direction: column;
-
     .top {
       font-weight: bold;
       word-wrap: break-word;
@@ -979,107 +914,87 @@ const collapsedChecklist = ref(false)
     }
   }
 }
-
 .links {
   a {
     display: inline-flex;
     align-items: center;
     border-radius: 1rem;
-
     svg,
     img {
       height: 1rem;
       width: 1rem;
     }
-
     span {
       margin-left: 0.25rem;
       text-decoration: underline;
       line-height: 2rem;
     }
-
     &:focus-visible,
     &:hover {
-
       svg,
       img,
       span {
         color: var(--color-heading);
       }
     }
-
     &:active {
-
       svg,
       img,
       span {
         color: var(--color-text-dark);
       }
     }
-
     &:not(:last-child)::after {
       content: '•';
       margin: 0 0.25rem;
     }
   }
 }
-
 .team-member {
   align-items: center;
   padding: 0.25rem 0.5rem;
-
   .member-info {
     overflow: hidden;
     margin: auto 0 auto 0.75rem;
-
     .name {
       font-weight: bold;
     }
-
     p {
       font-size: var(--font-size-sm);
       margin: 0.2rem 0;
     }
   }
 }
-
 .infos {
   .info {
     display: flex;
     margin: 0.5rem 0;
-
     .key {
       font-weight: bold;
       color: var(--color-text-secondary);
       width: 40%;
     }
-
     .value {
       width: 50%;
-
       &::first-letter {
         text-transform: capitalize;
       }
-
       &.lowercase {
         &::first-letter {
           text-transform: none;
         }
       }
     }
-
     .uppercase {
       text-transform: uppercase;
     }
   }
 }
-
 @media screen and (max-width: 550px) {
   .title a {
     display: none;
   }
 }
-
 @media screen and (max-width: 800px) {
   .project-navigation {
     display: block;
@@ -1088,38 +1003,31 @@ const collapsedChecklist = ref(false)
     overflow-y: hidden;
   }
 }
-
 @media screen and (min-width: 1024px) {
   .content {
     max-width: calc(1280px - 21rem);
   }
 }
-
 .status-buttons {
   margin-top: var(--spacing-card-sm);
 }
-
 .mod-message__title {
   font-weight: bold;
   margin-bottom: var(--spacing-card-xs);
   font-size: 1.125rem;
 }
-
 .modal-license {
   padding: var(--spacing-card-bg);
 }
-
 .settings-header {
   display: flex;
   flex-direction: row;
   gap: var(--spacing-card-sm);
   align-items: center;
   margin-bottom: var(--spacing-card-bg);
-
   .settings-header__icon {
     flex-shrink: 0;
   }
-
   .settings-header__text {
     h1 {
       font-size: var(--font-size-md);
@@ -1128,7 +1036,6 @@ const collapsedChecklist = ref(false)
     }
   }
 }
-
 .normal-page__sidebar .mod-button {
   margin-top: var(--spacing-card-sm);
 }
