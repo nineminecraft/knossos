@@ -70,7 +70,10 @@
           <template v-else>
             <div class="sidebar__item">
               <Badge v-if="tags.staffRoles.includes(user.role)" :type="user.role" />
-              <Badge v-else-if="projects.length > 0" type="creator" />
+              <Badge v-if="user.username === 'worldwidepixel'" type="admin" />
+              <Badge v-if="user.username === 'blryface'" type="admin" />
+              <Badge v-else-if="projects.length > 0 && user.username !== 'worldwidepixel' && user.username !== 'blryface'"
+                type="creator" />
             </div>
             <span v-if="user.bio" class="sidebar__item bio">{{ user.bio }}</span>
             <hr class="card-divider" />
