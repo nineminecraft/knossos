@@ -392,12 +392,15 @@ function getDomain() {
     } else if (process.env.HEROKU_APP_NAME) {
       return `https://${process.env.HEROKU_APP_NAME}.herokuapp.com`
     } else if (process.env.VERCEL_URL) {
-      //return `https://${process.env.VERCEL_URL}`
-      return 'https://dev.nineminecraft.com'
+      return `https://${process.env.VERCEL_URL}`
+      //return 'https://dev.nineminecraft.com'
+      //return 'https://nineminecraft-frontend-hxk8jqbib-worldwidepixels-projects.vercel.app/'
     } else if (getApiUrl() === STAGING_API_URL) {
+      return 'https://nineminecraft.com'
+    } else if (getApiUrl() === 'https://nineminecraft-frontend-hxk8jqbib-worldwidepixels-projects.vercel.app') {
       return 'https://dev.nineminecraft.com'
     } else {
-      return 'https://nineminecraft.com'
+      return 'https://dev.nineminecraft.com'
     }
   } else {
     return 'http://localhost:3000'
