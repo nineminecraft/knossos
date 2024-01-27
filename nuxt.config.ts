@@ -183,8 +183,8 @@ export default defineNuxtConfig({
     async 'vintl:extendOptions'(opts) {
       opts.locales ??= []
 
-      const isProduction = getDomain() === 'https://dev.nineminecraft.com'
       console.log(getDomain())
+      const isProduction = getDomain() === 'https://dev.nineminecraft.com'
 
       const resolveCompactNumberDataImport = await (async () => {
         const compactNumberLocales: string[] = []
@@ -398,6 +398,8 @@ function getDomain() {
     } else if (getApiUrl() === STAGING_API_URL) {
       return 'https://nineminecraft.com'
     } else if (getApiUrl() === 'https://nineminecraft-frontend-hxk8jqbib-worldwidepixels-projects.vercel.app') {
+      return 'https://dev.nineminecraft.com'
+    } else if (getApiUrl() === 'https://dev.nineminecraft.com') {
       return 'https://dev.nineminecraft.com'
     } else {
       return 'https://dev.nineminecraft.com'
