@@ -183,7 +183,7 @@ export default defineNuxtConfig({
     async 'vintl:extendOptions'(opts) {
       opts.locales ??= []
 
-      console.log(process.env.VERCEL_URL)
+      console.log(`https://${process.env.VERCEL_URL}`)
       console.log(getDomain())
       const isProduction = getDomain() === 'https://dev.nineminecraft.com'
 
@@ -393,8 +393,8 @@ function getDomain() {
     } else if (process.env.HEROKU_APP_NAME) {
       return `https://${process.env.HEROKU_APP_NAME}.herokuapp.com`
     } else if (process.env.VERCEL_URL) {
-      return `https://${process.env.VERCEL_URL}`
-      //return 'https://dev.nineminecraft.com'
+      //return `https://${process.env.VERCEL_URL}`
+      return 'https://dev.nineminecraft.com'
       //return 'https://nineminecraft-frontend-hxk8jqbib-worldwidepixels-projects.vercel.app/'
     } else if (getApiUrl() === STAGING_API_URL) {
       return 'https://nineminecraft.com'
