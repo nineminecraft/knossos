@@ -186,7 +186,7 @@ export default defineNuxtConfig({
       console.log(`https://${process.env.VERCEL_URL}`)
       console.log(getDomain())
       if (getDomain() === 'https://dev.nineminecraft.com') {
-        console.log(getDomain() && 'https://dev.nineminecraft.com')
+        console.log(`${getDomain()} and ${'https://dev.nineminecraft.com'} am the same`)
       }
       const isProduction = getDomain() === 'https://dev.nineminecraft.com'
 
