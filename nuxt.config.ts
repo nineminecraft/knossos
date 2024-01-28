@@ -184,11 +184,13 @@ export default defineNuxtConfig({
       opts.locales ??= []
 
       console.log(`https://${process.env.VERCEL_URL}`)
+      console.log(getApiUrl())
       console.log(getDomain())
       if (getDomain() === 'https://dev.nineminecraft.com') {
         console.log(`${getDomain()} and ${'https://dev.nineminecraft.com'} am the same`)
       }
       const isProduction = getDomain() === 'https://dev.nineminecraft.com'
+      console.log(isProduction)
 
       const resolveCompactNumberDataImport = await (async () => {
         const compactNumberLocales: string[] = []
