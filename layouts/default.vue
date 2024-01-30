@@ -321,12 +321,12 @@ useSeoMeta({
   ogSiteName: 'nineMinecraft',
   ogDescription: 'Discover and publish Minecraft content!',
   ogType: 'website',
-  ogImage: 'https://cdn.modrinth.com/modrinth-new.png',
+  ogImage: 'https://avatars.githubusercontent.com/u/154568515?s=400&u=cbe73c8862ad6325359fd98d30b92b06d4e5fd72&v=4',
   ogUrl: link,
 
   // Twitter
   twitterCard: 'summary',
-  twitterSite: '@modrinth',
+  twitterSite: '@no',
 })
 
 let developerModeCounter = 0
