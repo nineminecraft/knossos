@@ -88,8 +88,8 @@
             '/gallery'
             ">
             <img v-if="featuredGalleryImage" :src="featuredGalleryImage.url" :alt="featuredGalleryImage.description
-                ? featuredGalleryImage.description
-                : featuredGalleryImage.title
+              ? featuredGalleryImage.description
+              : featuredGalleryImage.title
               " />
           </nuxt-link>
           <div class="project__header__content universal-card full-width-inputs">
@@ -404,6 +404,7 @@
               <CopyCode :text="project.id" />
             </div>
           </div>
+          <!--
           <div class="input-group">
             <a v-if="config.public.apiBaseUrl.startsWith('https://api.modrinth.com') &&
               config.public.siteUrl !== 'https://modrinth.com'
@@ -420,18 +421,19 @@
               View on staging.nineMinecraft.com
             </a>
           </div>
+        -->
         </div>
 
-    
-          
-            
-    
 
-          
-          Expand Down
-    
-    
-  
+
+
+
+
+
+        Expand Down
+
+
+
       </div>
     </div>
   </div>
@@ -787,19 +789,23 @@ const collapsedChecklist = ref(false)
 <style lang="scss" scoped>
 .header {
   grid-area: header;
+
   .title {
     overflow-wrap: break-word;
     margin: var(--spacing-card-xs) 0;
     color: var(--color-text-dark);
     font-size: var(--font-size-xl);
   }
+
   .project-type {
     text-decoration: none;
     font-weight: 500;
+
     svg {
       vertical-align: top;
       margin-right: 0.25em;
     }
+
     &:hover,
     &:focus-visible {
       span {
@@ -807,6 +813,7 @@ const collapsedChecklist = ref(false)
       }
     }
   }
+
   .description {
     line-height: 1.3;
     overflow-wrap: break-word;
@@ -814,13 +821,16 @@ const collapsedChecklist = ref(false)
     margin-bottom: 0.5rem;
     font-size: var(--font-size-nm);
   }
+
   .categories {
     margin: 0.25rem 0;
     color: var(--color-text-secondary);
     font-size: var(--font-size-nm);
   }
+
   .dates {
     margin: 0.75rem 0;
+
     .date {
       color: var(--color-text-secondary);
       font-size: var(--font-size-nm);
@@ -828,9 +838,11 @@ const collapsedChecklist = ref(false)
       align-items: center;
       margin-bottom: 0.25rem;
       cursor: default;
+
       .label {
         margin-right: 0.25rem;
       }
+
       svg {
         height: 1rem;
         margin-right: 0.25rem;
@@ -838,23 +850,28 @@ const collapsedChecklist = ref(false)
     }
   }
 }
+
 .project__header {
   overflow: hidden;
+
   .project__gallery {
     display: none;
   }
+
   &.has-featured-image {
     .project__gallery {
       display: inline-block;
       width: 100%;
       height: 10rem;
       background-color: var(--color-button-bg-active);
+
       img {
         width: 100%;
         height: 10rem;
         object-fit: cover;
       }
     }
+
     .project__icon {
       margin-top: calc(-3rem - var(--spacing-card-lg) - 4px);
       margin-left: -4px;
@@ -862,16 +879,19 @@ const collapsedChecklist = ref(false)
       box-shadow: -2px -2px 0 2px var(--color-raised-bg), 2px -2px 0 2px var(--color-raised-bg);
     }
   }
+
   .project__header__content {
     margin: 0;
     background: none;
     border-radius: unset;
   }
 }
+
 .project-info {
   height: auto;
   overflow: hidden;
 }
+
 .card-header {
   font-size: 1.125rem;
   font-weight: bold;
@@ -880,33 +900,41 @@ const collapsedChecklist = ref(false)
   margin-bottom: 0.3rem;
   width: fit-content;
 }
+
 .featured-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
   .card-header {
     height: 23px;
   }
+
   .goto-link {
     margin-bottom: 0.3rem;
   }
 }
+
 .featured-version {
   display: flex;
   flex-direction: row;
   padding: 0.5rem;
+
   .download {
     height: 2.5rem;
     width: 2.5rem;
     margin-right: 0.75rem;
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
     }
   }
+
   .info {
     display: flex;
     flex-direction: column;
+
     .top {
       font-weight: bold;
       word-wrap: break-word;
@@ -914,87 +942,107 @@ const collapsedChecklist = ref(false)
     }
   }
 }
+
 .links {
   a {
     display: inline-flex;
     align-items: center;
     border-radius: 1rem;
+
     svg,
     img {
       height: 1rem;
       width: 1rem;
     }
+
     span {
       margin-left: 0.25rem;
       text-decoration: underline;
       line-height: 2rem;
     }
+
     &:focus-visible,
     &:hover {
+
       svg,
       img,
       span {
         color: var(--color-heading);
       }
     }
+
     &:active {
+
       svg,
       img,
       span {
         color: var(--color-text-dark);
       }
     }
+
     &:not(:last-child)::after {
       content: '•';
       margin: 0 0.25rem;
     }
   }
 }
+
 .team-member {
   align-items: center;
   padding: 0.25rem 0.5rem;
+
   .member-info {
     overflow: hidden;
     margin: auto 0 auto 0.75rem;
+
     .name {
       font-weight: bold;
     }
+
     p {
       font-size: var(--font-size-sm);
       margin: 0.2rem 0;
     }
   }
 }
+
 .infos {
   .info {
     display: flex;
     margin: 0.5rem 0;
+
     .key {
       font-weight: bold;
       color: var(--color-text-secondary);
       width: 40%;
     }
+
     .value {
       width: 50%;
+
       &::first-letter {
         text-transform: capitalize;
       }
+
       &.lowercase {
         &::first-letter {
           text-transform: none;
         }
       }
     }
+
     .uppercase {
       text-transform: uppercase;
     }
   }
 }
+
 @media screen and (max-width: 550px) {
   .title a {
     display: none;
   }
 }
+
 @media screen and (max-width: 800px) {
   .project-navigation {
     display: block;
@@ -1003,31 +1051,38 @@ const collapsedChecklist = ref(false)
     overflow-y: hidden;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .content {
     max-width: calc(1280px - 21rem);
   }
 }
+
 .status-buttons {
   margin-top: var(--spacing-card-sm);
 }
+
 .mod-message__title {
   font-weight: bold;
   margin-bottom: var(--spacing-card-xs);
   font-size: 1.125rem;
 }
+
 .modal-license {
   padding: var(--spacing-card-bg);
 }
+
 .settings-header {
   display: flex;
   flex-direction: row;
   gap: var(--spacing-card-sm);
   align-items: center;
   margin-bottom: var(--spacing-card-bg);
+
   .settings-header__icon {
     flex-shrink: 0;
   }
+
   .settings-header__text {
     h1 {
       font-size: var(--font-size-md);
@@ -1036,7 +1091,7 @@ const collapsedChecklist = ref(false)
     }
   }
 }
+
 .normal-page__sidebar .mod-button {
   margin-top: var(--spacing-card-sm);
-}
-</style>
+}</style>
