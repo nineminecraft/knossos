@@ -75,7 +75,7 @@
                     <span class="title">Moderation</span>
                   </NuxtLink>
                   <NuxtLink v-if="!cosmetics.hideModrinthAppPromos" class="item button-transparent primary-color"
-                    to="/app">
+                    to="https://www.youtube.com/watch?v=yPYZpwSpKmA">
                     <DownloadIcon class="icon" />
                     <span class="title">Get nineMinecraft App</span>
                   </NuxtLink>
@@ -91,7 +91,7 @@
                   <LogInIcon /> Sign in
                 </nuxt-link>
                 <nuxt-link v-if="$route.path !== '/app' && !cosmetics.hideModrinthAppPromos"
-                  class="btn btn-outline btn-primary app-btn" to="/app">
+                  class="btn btn-outline btn-primary app-btn" to="https://www.youtube.com/watch?v=yPYZpwSpKmA">
                   <DownloadIcon /> Get nineMinecraft App
                 </nuxt-link>
               </section>
@@ -229,21 +229,21 @@
       <div class="links links-2" role="region" aria-label="Resources">
         <h4 aria-hidden="true">Resources</h4>
         <a :target="$external()" href="https://blog.worldwidepixel.ca">Blog</a>
-        <a :target="$external()" href="https://docs.modrinth.com">Docs</a>
+        <a :target="$external()" href="https://www.youtube.com/watch?v=yPYZpwSpKmA">Docs</a>
         <a :target="$external()" href="https://downfor.io/dev.nineminecraft.com">Status</a>
         <a rel="noopener" :target="$external()" href="https://github.com/nineMinecraft">GitHub</a>
       </div>
       <div class="links links-3" role="region" aria-label="Interact">
         <h4 aria-hidden="true">Interact</h4>
         <a rel="noopener" :target="$external()" href="https://worldwidepixel.ca/discord"> Discord </a>
-        <a rel="noopener" :target="$external()" href="https://worldwidepixel.ca/twitter"> Twitter </a>
+        <a rel="noopener" :target="$external()" href="https://www.youtube.com/watch?v=yPYZpwSpKmA"> Twitter </a>
         <a rel="noopener" :target="$external()" href="https://mastodon.social/@worldwidepixel"> Mastodon </a>
-        <a rel="noopener" :target="$external()" href="https://crowdin.com/project/modrinth">
+        <a rel="noopener" :target="$external()" href="https://www.youtube.com/watch?v=yPYZpwSpKmA">
           Crowdin
         </a>
       </div>
       <div class="buttons">
-        <nuxt-link class="btn btn-outline btn-primary" to="/app">
+        <nuxt-link class="btn btn-outline btn-primary" to="https://www.youtube.com/watch?v=yPYZpwSpKmA">
           <DownloadIcon aria-hidden="true" />
           Get nineMinecraft App
         </nuxt-link>

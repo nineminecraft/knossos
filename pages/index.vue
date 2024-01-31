@@ -375,8 +375,7 @@
           Read more about <br />
           <strong class="main-header-strong">nineMinecraft</strong>
         </h2>
-        <a href="https://blog.modrinth.com/?utm_source=website&utm_source=homepage&utm_campaign=newsletter"
-          class="iconified-button brand-button">
+        <a href="https://blog.worldwidepixel.ca" class="iconified-button brand-button">
           Visit the blog
         </a>
       </div>
