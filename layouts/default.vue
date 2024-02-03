@@ -13,6 +13,22 @@
         </nuxt-link>
       </template>
     </div>
+    <div class="site-banner site-banner--warning">
+      <div class="site-banner__title">
+        <IssuesIcon />
+        <span>
+          <HeartIcon /> nineMinecraft is a joke site.
+        </span>
+      </div>
+      <div class="site-banner__description">
+        nineMinecraft is in no way affiliated with Modrinth.
+      </div>
+      <div class="site-banner__actions">
+        <Button transparent icon-only :action="hideStagingBanner">
+          <XIcon />
+        </Button>
+      </div>
+    </div>
     <header class="site-header" role="presentation">
       <section class="navbar columns" role="navigation">
         <section class="logo column" role="presentation">
@@ -1103,6 +1119,45 @@ export default defineNuxtComponent({
   justify-content: center;
   gap: 1rem;
   padding: 0.5rem 1rem;
+}
+
+.site-banner--warning {
+  background-color: var(--color-red-bg);
+  border-bottom: 2px solid var(--color-red);
+  display: grid;
+  gap: 0.5rem;
+  grid-template: 'title actions' 'description actions';
+  padding-block: var(--gap-xl);
+  padding-inline: max(calc((100% - 80rem) / 2 + var(--gap-md)), var(--gap-xl));
+
+  .site-banner__title {
+    grid-area: title;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-weight: bold;
+    font-size: var(--font-size-md);
+    color: var(--color-contrast);
+
+    svg {
+      color: var(--color-red);
+      width: 1.5rem;
+      height: 1.5rem;
+      flex-shrink: 0;
+    }
+  }
+
+  .site-banner__description {
+    grid-area: description;
+  }
+
+  .site-banner__actions {
+    grid-area: actions;
+  }
+
+  a {
+    color: var(--color-red);
+  }
 }
 
 @media (max-width: 1200px) {
