@@ -15,18 +15,12 @@
     </div>
     <div class="site-banner site-banner--warning">
       <div class="site-banner__title">
-        <IssuesIcon />
-        <span>
+        <span class="sitebannertitle">
           <HeartIcon /> nineMinecraft is a joke site.
         </span>
       </div>
       <div class="site-banner__description">
         nineMinecraft is in no way affiliated with Modrinth.
-      </div>
-      <div class="site-banner__actions">
-        <Button transparent icon-only :action="hideStagingBanner">
-          <XIcon />
-        </Button>
       </div>
     </div>
     <header class="site-header" role="presentation">
@@ -91,9 +85,9 @@
                     <span class="title">Moderation</span>
                   </NuxtLink>
                   <NuxtLink v-if="!cosmetics.hideModrinthAppPromos" class="item button-transparent primary-color"
-                    to="https://www.youtube.com/watch?v=yPYZpwSpKmA">
-                    <DownloadIcon class="icon" />
-                    <span class="title">Get nineMinecraft App</span>
+                    to="/legal/about">
+                    <HeartIcon class="icon" />
+                    <span class="title">About nineMinecraft</span>
                   </NuxtLink>
                   <hr class="divider" />
                   <button class="item button-transparent" @click="logoutUser()">
@@ -107,8 +101,8 @@
                   <LogInIcon /> Sign in
                 </nuxt-link>
                 <nuxt-link v-if="$route.path !== '/app' && !cosmetics.hideModrinthAppPromos"
-                  class="btn btn-outline btn-primary app-btn" to="https://www.youtube.com/watch?v=yPYZpwSpKmA">
-                  <DownloadIcon /> Get nineMinecraft App
+                  class="btn btn-outline btn-primary app-btn" to="/legal/about">
+                  <HeartIcon /> About nineMinecraft
                 </nuxt-link>
               </section>
             </section>
@@ -237,31 +231,25 @@
       </div>
       <div class="links links-1" role="region" aria-label="Legal">
         <h4 aria-hidden="true">Company</h4>
-        <nuxt-link to="/legal/terms"> Terms</nuxt-link>
-        <nuxt-link to="/legal/privacy"> Privacy</nuxt-link>
-        <nuxt-link to="/legal/rules"> Rules</nuxt-link>
-        <a :target="$external()" href="https://worldwidepixel.ca/discord">Careers <span class="count-bubble">1</span></a>
+        <nuxt-link to="/legal/about"> About Us</nuxt-link>
+        <a rel="noopener" :target="$external()" href="mailto:support@nineminecraft.com"> Email </a>
       </div>
       <div class="links links-2" role="region" aria-label="Resources">
         <h4 aria-hidden="true">Resources</h4>
         <a :target="$external()" href="https://blog.worldwidepixel.ca">Blog</a>
-        <a :target="$external()" href="https://www.youtube.com/watch?v=yPYZpwSpKmA">Docs</a>
         <a :target="$external()" href="https://downfor.io/dev.nineminecraft.com">Status</a>
         <a rel="noopener" :target="$external()" href="https://github.com/nineMinecraft">GitHub</a>
       </div>
       <div class="links links-3" role="region" aria-label="Interact">
         <h4 aria-hidden="true">Interact</h4>
-        <a rel="noopener" :target="$external()" href="https://worldwidepixel.ca/discord"> Discord </a>
+        <a rel="noopener" :target="$external()" href="https://bsky.app/profile/nineminecraft.com"> Bluesky </a>
         <a rel="noopener" :target="$external()" href="https://www.youtube.com/watch?v=yPYZpwSpKmA"> Twitter </a>
         <a rel="noopener" :target="$external()" href="https://mastodon.social/@worldwidepixel"> Mastodon </a>
-        <a rel="noopener" :target="$external()" href="https://www.youtube.com/watch?v=yPYZpwSpKmA">
-          Crowdin
-        </a>
       </div>
       <div class="buttons">
-        <nuxt-link class="btn btn-outline btn-primary" to="https://www.youtube.com/watch?v=yPYZpwSpKmA">
-          <DownloadIcon aria-hidden="true" />
-          Get nineMinecraft App
+        <nuxt-link class="btn btn-outline btn-primary" to="/legal/about">
+          <HeartIcon aria-hidden="true" />
+          About nineMinecraft
         </nuxt-link>
         <button class="iconified-button raised-button" @click="changeTheme">
           <MoonIcon v-if="$colorMode.value === 'light'" aria-hidden="true" />
@@ -1139,12 +1127,20 @@ export default defineNuxtComponent({
     font-size: var(--font-size-md);
     color: var(--color-contrast);
 
+
     svg {
       color: var(--color-red);
       width: 1.5rem;
       height: 1.5rem;
       flex-shrink: 0;
     }
+  }
+
+  .sitebannertitle {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
   }
 
   .site-banner__description {
