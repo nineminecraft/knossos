@@ -20,7 +20,7 @@
         </span>
       </div>
       <div class="site-banner__description">
-        nineMinecraft is in no way affiliated with Modrinth.
+        nineMinecraft is in no way affiliated with Modrinth or 9minecraft.
       </div>
     </div>
     <header class="site-header" role="presentation">
