@@ -5,6 +5,10 @@ html {
   --color-text-secondary: var(--color-icon);
 }
 
+* {
+  font-family: cursive !important;
+}
+
 .light-mode {
   --color-icon: #6b7280;
   --color-text: hsl(221, 39%, 11%);

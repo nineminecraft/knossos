@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="landing-hero">
-      <ModrinthIcon />
+      <!--<ModrinthIcon /> -->
+      <img src="~/assets/best_thing.png" />
       <h1 class="main-header">
         The other place for Minecraft
         <div class="animate-strong">
@@ -115,12 +116,12 @@
                     <p class="notif-desc">
                       Version {{ ['1.1.2', '1.0.3', '15.1'][index] }} has been released for
                       {{
-                        $capitalizeString(
-                          notification.display_categories[
-                          notification.display_categories.length - 1
-                          ]
-                        )
-                      }}
+              $capitalizeString(
+                notification.display_categories[
+                notification.display_categories.length - 1
+                ]
+              )
+            }}
                       {{ notification.versions[notification.versions.length - 1] }}
                     </p>
                     <div class="date">

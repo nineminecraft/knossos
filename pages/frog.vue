@@ -51,7 +51,7 @@ onUnmounted(() => clearInterval(interval))
   <div class="card">
     <h1>{{ formatMessage(messages.frogTitle) }}</h1>
     <p>{{ formatMessage(messages.frogDescription) }}</p>
-    <img src="https://cdn.discordapp.com/attachments/1170201951628165210/1187583309409157231/image.png?ex=65976a25&is=6584f525&hm=fd26180eba416cb5272501194df35eb371529a1705a82e552e773b1465129103&" :alt="formatMessage(messages.frogAltText)" />
+    <img src="~/assets/best_thing.png" :alt="formatMessage(messages.frogAltText)" />
     <p>{{ formatMessage(messages.frogSinceOpened, { ago: formattedOpenedCounter }) }}</p>
     <p>{{ formatMessage(messages.frogFroggedPeople, { count: peopleFroggedCount }) }}</p>
   </div>
