@@ -3,65 +3,32 @@
     <template v-if="color"> <span class="circle" /> {{ $capitalizeString(type) }}</template>
 
     <!-- User roles -->
-    <template v-else-if="type === 'admin'">
-      <ModrinthIcon /> nineMinecraft Team
-    </template>
-    <template v-else-if="type === 'moderator'">
-      <ModeratorIcon /> Moderator
-    </template>
-    <template v-else-if="type === 'creator'">
-      <CreatorIcon /> Creator
-    </template>
+    <template v-else-if="type === 'admin'"> <ModrinthIcon /> nineMinecraft Team </template>
+    <template v-else-if="type === 'spirit'"> <SunIcon /> Spirit Studios </template>
+    <template v-else-if="type === 'moderator'"> <ModeratorIcon /> Moderator </template>
+    <template v-else-if="type === 'creator'"> <CreatorIcon /> Creator </template>
 
     <!-- Project statuses -->
-    <template v-else-if="type === 'approved'">
-      <ListIcon /> Listed
-    </template>
-    <template v-else-if="type === 'approved-general'">
-      <CheckIcon /> Approved
-    </template>
-    <template v-else-if="type === 'unlisted'">
-      <EyeOffIcon /> Unlisted
-    </template>
-    <template v-else-if="type === 'withheld'">
-      <EyeOffIcon /> Withheld
-    </template>
-    <template v-else-if="type === 'private'">
-      <LockIcon /> Private
-    </template>
-    <template v-else-if="type === 'scheduled'">
-      <CalendarIcon /> Scheduled
-    </template>
-    <template v-else-if="type === 'draft'">
-      <DraftIcon /> Draft
-    </template>
-    <template v-else-if="type === 'archived'">
-      <ArchiveIcon /> Archived
-    </template>
-    <template v-else-if="type === 'rejected'">
-      <CrossIcon /> Rejected
-    </template>
-    <template v-else-if="type === 'processing'">
-      <ProcessingIcon /> Under review
-    </template>
+    <template v-else-if="type === 'approved'"> <ListIcon /> Listed </template>
+    <template v-else-if="type === 'approved-general'"> <CheckIcon /> Approved </template>
+    <template v-else-if="type === 'unlisted'"> <EyeOffIcon /> Unlisted </template>
+    <template v-else-if="type === 'withheld'"> <EyeOffIcon /> Withheld </template>
+    <template v-else-if="type === 'private'"> <LockIcon /> Private </template>
+    <template v-else-if="type === 'scheduled'"> <CalendarIcon /> Scheduled </template>
+    <template v-else-if="type === 'draft'"> <DraftIcon /> Draft </template>
+    <template v-else-if="type === 'archived'"> <ArchiveIcon /> Archived </template>
+    <template v-else-if="type === 'rejected'"> <CrossIcon /> Rejected </template>
+    <template v-else-if="type === 'processing'"> <ProcessingIcon /> Under review </template>
 
     <!-- Team members -->
-    <template v-else-if="type === 'accepted'">
-      <CheckIcon /> Accepted
-    </template>
-    <template v-else-if="type === 'pending'">
-      <ProcessingIcon /> Pending
-    </template>
+    <template v-else-if="type === 'accepted'"> <CheckIcon /> Accepted </template>
+    <template v-else-if="type === 'pending'"> <ProcessingIcon /> Pending </template>
 
     <!-- Transaction statuses -->
-    <template v-else-if="type === 'success'">
-      <CheckIcon /> Success
-    </template>
+    <template v-else-if="type === 'success'"> <CheckIcon /> Success </template>
 
     <!-- Report status -->
-    <template v-else-if="type === 'closed'">
-      <CloseIcon /> Closed
-    </template>
+    <template v-else-if="type === 'closed'"> <CloseIcon /> Closed </template>
 
     <!-- Other -->
     <template v-else> <span class="circle" /> {{ $capitalizeString(type) }} </template>
@@ -69,6 +36,7 @@
 </template>
 
 <script setup>
+import { SunIcon } from 'omorphia'
 import ModrinthIcon from '~/assets/images/logo.svg'
 import ModeratorIcon from '~/assets/images/sidebar/admin.svg'
 import CreatorIcon from '~/assets/images/utils/box.svg'

@@ -2,8 +2,11 @@
   <section class="universal-card">
     <h2>Review projects</h2>
     <div class="input-group">
-      <Chips v-model="projectType" :items="projectTypes"
-        :format-label="(x) => (x === 'all' ? 'All' : $formatProjectType(x) + 's')" />
+      <Chips
+        v-model="projectType"
+        :items="projectTypes"
+        :format-label="(x) => (x === 'all' ? 'All' : $formatProjectType(x) + 's')"
+      />
       <button v-if="oldestFirst" class="iconified-button push-right" @click="oldestFirst = false">
         <SortDescIcon />Sorting by oldest
       </button>
@@ -24,16 +27,23 @@
       <WarningIcon /> {{ projectsOver48Hours.length }} {{ projectTypePlural }}
       have been in the queue for over 48 hours.
     </p>
-    <div v-for="project in projectsFiltered.sort((a, b) => {
-          if (oldestFirst) {
-            return b.age - a.age
-          } else {
-            return a.age - b.age
-          }
-        })" :key="`project-${project.id}`" class="universal-card recessed project">
+    <div
+      v-for="project in projectsFiltered.sort((a, b) => {
+        if (oldestFirst) {
+          return b.age - a.age
+        } else {
+          return a.age - b.age
+        }
+      })"
+      :key="`project-${project.id}`"
+      class="universal-card recessed project"
+    >
       <div class="project-title">
         <div class="mobile-row">
-          <nuxt-link :to="`/${project.inferred_project_type}/${project.slug}`" class="iconified-stacked-link">
+          <nuxt-link
+            :to="`/${project.inferred_project_type}/${project.slug}`"
+            class="iconified-stacked-link"
+          >
             <Avatar :src="project.icon_url" size="xs" no-shadow raised />
             <span class="stacked">
               <span class="title">{{ project.title }}</span>
@@ -54,7 +64,10 @@
         </div>
       </div>
       <div class="input-group">
-        <nuxt-link :to="`/${project.inferred_project_type}/${project.slug}`" class="iconified-button raised-button">
+        <nuxt-link
+          :to="`/${project.inferred_project_type}/${project.slug}`"
+          class="iconified-button raised-button"
+        >
           <EyeIcon /> View project
         </nuxt-link>
       </div>
@@ -65,9 +78,7 @@
           fromNow(project.queued)
         }}</span>
       </span>
-      <span v-else class="submitter-info">
-        <UnknownIcon /> Unknown queue date
-      </span>
+      <span v-else class="submitter-info"> <UnknownIcon /> Unknown queue date </span>
     </div>
   </section>
 </template>
