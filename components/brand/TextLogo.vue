@@ -13,39 +13,6 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:svg="http://www.w3.org/2000/svg"
   >
-    <sodipodi:namedview
-      id="namedview1017"
-      pagecolor="#ffffff"
-      bordercolor="#999999"
-      borderopacity="1"
-      inkscape:pageshadow="0"
-      inkscape:pageopacity="0"
-      inkscape:pagecheckerboard="0"
-      inkscape:document-units="mm"
-      showgrid="true"
-      inkscape:snap-bbox="true"
-      inkscape:bbox-paths="true"
-      inkscape:bbox-nodes="true"
-      inkscape:snap-bbox-edge-midpoints="true"
-      inkscape:snap-bbox-midpoints="true"
-      inkscape:zoom="0.046435711"
-      inkscape:cx="8140.2867"
-      inkscape:cy="1733.5796"
-      inkscape:window-width="1920"
-      inkscape:window-height="1001"
-      inkscape:window-x="-9"
-      inkscape:window-y="-9"
-      inkscape:window-maximized="1"
-      inkscape:current-layer="layer1"
-    >
-      <inkscape:grid
-        type="xygrid"
-        id="grid1076"
-        units="mm"
-        spacingx="0.99999999"
-        spacingy="0.99999999"
-      />
-    </sodipodi:namedview>
     <defs id="defs1012">
       <linearGradient
         inkscape:collect="always"

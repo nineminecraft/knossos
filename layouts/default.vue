@@ -1,6 +1,9 @@
 <template>
   <div ref="main_page" class="layout" :class="{ 'expanded-mobile-nav': isBrowseMenuOpen }">
-    <div v-if="auth.user && !auth.user.email_verified && route.path !== '/auth/verify-email'" class="email-nag">
+    <div
+      v-if="auth.user && !auth.user.email_verified && route.path !== '/auth/verify-email'"
+      class="email-nag"
+    >
       <template v-if="auth.user.email">
         <span>For security purposes, please verify your email address on nineMinecraft.</span>
         <button class="btn" @click="resendVerifyEmail">Re-send verification email</button>
@@ -15,12 +18,11 @@
     </div>
     <div class="site-banner site-banner--warning">
       <div class="site-banner__title">
-        <span class="sitebannertitle">
-          <HeartIcon /> nineMinecraft is a joke site.
-        </span>
+        <span class="sitebannertitle"> <HeartIcon /> nineMinecraft is a joke site. </span>
       </div>
       <div class="site-banner__description">
-        nineMinecraft is in no way affiliated with Modrinth or 9minecraft.
+        nineMinecraft is in no way affiliated with Modrinth or 9minecraft. (And frankly, who wants
+        to be affiliated with the latter?)
       </div>
     </div>
     <header class="site-header" role="presentation">
@@ -36,18 +38,40 @@
           </section>
           <section class="column-grow user-outer" aria-label="Account links">
             <section class="user-controls">
-              <nuxt-link v-if="auth.user" to="/dashboard/notifications" class="control-button button-transparent"
-                :class="{ bubble: user.notifications.some((notif) => !notif.read) }" title="Notifications">
+              <nuxt-link
+                v-if="auth.user"
+                to="/dashboard/notifications"
+                class="control-button button-transparent"
+                :class="{ bubble: user.notifications.some((notif) => !notif.read) }"
+                title="Notifications"
+              >
                 <NotificationIcon aria-hidden="true" />
               </nuxt-link>
-              <button class="control-button button-transparent" title="Switch theme" @click="changeTheme">
+              <button
+                class="control-button button-transparent"
+                title="Switch theme"
+                @click="changeTheme"
+              >
                 <MoonIcon v-if="$colorMode.value === 'light'" aria-hidden="true" />
                 <SunIcon v-else aria-hidden="true" />
               </button>
-              <div v-if="auth.user" class="dropdown" :class="{ closed: !isDropdownOpen }" tabindex="0"
-                @mouseover="isDropdownOpen = true" @focus="isDropdownOpen = true" @mouseleave="isDropdownOpen = false">
+              <div
+                v-if="auth.user"
+                class="dropdown"
+                :class="{ closed: !isDropdownOpen }"
+                tabindex="0"
+                @mouseover="isDropdownOpen = true"
+                @focus="isDropdownOpen = true"
+                @mouseleave="isDropdownOpen = false"
+              >
                 <button class="control" value="Profile Dropdown">
-                  <Avatar :src="auth.user.avatar_url" class="user-icon" alt="Your avatar" aria-hidden="true" circle />
+                  <Avatar
+                    :src="auth.user.avatar_url"
+                    class="user-icon"
+                    alt="Your avatar"
+                    aria-hidden="true"
+                    circle
+                  />
                   <DropdownIcon class="caret" />
                 </button>
                 <div class="content card">
@@ -79,13 +103,19 @@
                     <SettingsIcon class="icon" />
                     <span class="title">Settings</span>
                   </NuxtLink>
-                  <NuxtLink v-if="tags.staffRoles.includes(auth.user.role)" class="item button-transparent"
-                    to="/moderation">
+                  <NuxtLink
+                    v-if="tags.staffRoles.includes(auth.user.role)"
+                    class="item button-transparent"
+                    to="/moderation"
+                  >
                     <ModerationIcon class="icon" />
                     <span class="title">Moderation</span>
                   </NuxtLink>
-                  <NuxtLink v-if="!cosmetics.hideModrinthAppPromos" class="item button-transparent primary-color"
-                    to="/legal/about">
+                  <NuxtLink
+                    v-if="!cosmetics.hideModrinthAppPromos"
+                    class="item button-transparent primary-color"
+                    to="/legal/about"
+                  >
                     <HeartIcon class="icon" />
                     <span class="title">About nineMinecraft</span>
                   </NuxtLink>
@@ -100,8 +130,11 @@
                 <nuxt-link class="iconified-button raised-button" to="/auth/sign-in">
                   <LogInIcon /> Sign in
                 </nuxt-link>
-                <nuxt-link v-if="$route.path !== '/app' && !cosmetics.hideModrinthAppPromos"
-                  class="btn btn-outline btn-primary app-btn" to="/legal/about">
+                <nuxt-link
+                  v-if="$route.path !== '/app' && !cosmetics.hideModrinthAppPromos"
+                  class="btn btn-outline btn-primary app-btn"
+                  to="/legal/about"
+                >
                   <HeartIcon /> About nineMinecraft
                 </nuxt-link>
               </section>
@@ -110,19 +143,42 @@
         </section>
       </section>
       <section class="mobile-navigation">
-        <div class="nav-menu nav-menu-browse" :class="{ expanded: isBrowseMenuOpen }" @focusin="isBrowseMenuOpen = true"
-          @focusout="isBrowseMenuOpen = false">
+        <div
+          class="nav-menu nav-menu-browse"
+          :class="{ expanded: isBrowseMenuOpen }"
+          @focusin="isBrowseMenuOpen = true"
+          @focusout="isBrowseMenuOpen = false"
+        >
           <div class="links cascade-links">
-            <NuxtLink v-for="navRoute in navRoutes" :key="navRoute.href" :to="navRoute.href" class="iconified-button">
+            <NuxtLink
+              v-for="navRoute in navRoutes"
+              :key="navRoute.href"
+              :to="navRoute.href"
+              class="iconified-button"
+            >
               {{ navRoute.label }}
             </NuxtLink>
           </div>
         </div>
-        <div class="nav-menu nav-menu-mobile" :class="{ expanded: isMobileMenuOpen }" @focusin="isMobileMenuOpen = true"
-          @focusout="isMobileMenuOpen = false">
+        <div
+          class="nav-menu nav-menu-mobile"
+          :class="{ expanded: isMobileMenuOpen }"
+          @focusin="isMobileMenuOpen = true"
+          @focusout="isMobileMenuOpen = false"
+        >
           <div class="account-container">
-            <NuxtLink v-if="auth.user" :to="`/user/${auth.user.username}`" class="iconified-button account-button">
-              <Avatar :src="auth.user.avatar_url" class="user-icon" alt="Your avatar" aria-hidden="true" circle />
+            <NuxtLink
+              v-if="auth.user"
+              :to="`/user/${auth.user.username}`"
+              class="iconified-button account-button"
+            >
+              <Avatar
+                :src="auth.user.avatar_url"
+                class="user-icon"
+                alt="Your avatar"
+                aria-hidden="true"
+                circle
+              />
               <div class="account-text">
                 <div>@{{ auth.user.username }}</div>
                 <div>Visit your profile</div>
@@ -146,8 +202,11 @@
                 <HeartIcon aria-hidden="true" />
                 Following
               </NuxtLink>
-              <NuxtLink v-if="auth.user.role === 'moderator' || auth.user.role === 'admin'" class="iconified-button"
-                to="/moderation">
+              <NuxtLink
+                v-if="auth.user.role === 'moderator' || auth.user.role === 'admin'"
+                class="iconified-button"
+                to="/moderation"
+              >
                 <ModerationIcon aria-hidden="true" />
                 Moderation
               </NuxtLink>
@@ -167,8 +226,12 @@
           <NuxtLink to="/" class="tab button-animation" title="Home">
             <HomeIcon />
           </NuxtLink>
-          <button class="tab button-animation" :class="{ 'router-link-exact-active': isBrowseMenuOpen }" title="Search"
-            @click="toggleBrowseMenu()">
+          <button
+            class="tab button-animation"
+            :class="{ 'router-link-exact-active': isBrowseMenuOpen }"
+            title="Search"
+            @click="toggleBrowseMenu()"
+          >
             <template v-if="auth.user">
               <SearchIcon />
             </template>
@@ -178,28 +241,45 @@
             </template>
           </button>
           <template v-if="auth.user">
-            <NuxtLink to="/dashboard/notifications" class="tab button-animation" :class="{
-              bubble: user.notifications.some((notif) => !notif.read),
-              'no-active': isMobileMenuOpen || isBrowseMenuOpen,
-            }" title="Notifications" @click="() => {
-  isMobileMenuOpen = false
-  isBrowseMenuOpen = false
-}
-  ">
+            <NuxtLink
+              to="/dashboard/notifications"
+              class="tab button-animation"
+              :class="{
+                bubble: user.notifications.some((notif) => !notif.read),
+                'no-active': isMobileMenuOpen || isBrowseMenuOpen,
+              }"
+              title="Notifications"
+              @click="
+                () => {
+                  isMobileMenuOpen = false
+                  isBrowseMenuOpen = false
+                }
+              "
+            >
               <NotificationIcon />
             </NuxtLink>
             <NuxtLink to="/dashboard" class="tab button-animation" title="Dashboard">
               <ChartIcon />
             </NuxtLink>
           </template>
-          <button class="tab button-animation" title="Toggle Mobile Menu" @click="toggleMobileMenu()">
+          <button
+            class="tab button-animation"
+            title="Toggle Mobile Menu"
+            @click="toggleMobileMenu()"
+          >
             <template v-if="!auth.user">
               <HamburgerIcon v-if="!isMobileMenuOpen" />
               <CrossIcon v-else />
             </template>
             <template v-else>
-              <Avatar :src="auth.user.avatar_url" class="user-icon" :class="{ expanded: isMobileMenuOpen }"
-                alt="Your avatar" aria-hidden="true" circle />
+              <Avatar
+                :src="auth.user.avatar_url"
+                class="user-icon"
+                :class="{ expanded: isMobileMenuOpen }"
+                alt="Your avatar"
+                aria-hidden="true"
+                circle
+              />
             </template>
           </button>
         </div>
@@ -214,20 +294,35 @@
         <BrandTextLogo aria-hidden="true" class="text-logo" @click="developerModeIncrement()" />
         <p>
           nineMinecraft is
-          <a :target="$external()" href="https://github.com/nineMinecraft" class="text-link" rel="noopener">
-            open source</a>.
+          <a
+            :target="$external()"
+            href="https://github.com/nineMinecraft"
+            class="text-link"
+            rel="noopener"
+          >
+            open source</a
+          >.
         </p>
         <p>
-          {{ config.public.owner }}/{{ config.public.slug }} {{ config.public.branch }}@<a :target="$external()" :href="'https://github.com/' +
-            config.public.owner +
-            '/' +
-            config.public.slug +
-            '/tree/' +
-            config.public.hash
-            " class="text-link" rel="noopener">{{ config.public.hash.substring(0, 7) }}</a>
+          {{ config.public.owner }}/{{ config.public.slug }} {{ config.public.branch }}@<a
+            :target="$external()"
+            :href="
+              'https://github.com/' +
+              config.public.owner +
+              '/' +
+              config.public.slug +
+              '/tree/' +
+              config.public.hash
+            "
+            class="text-link"
+            rel="noopener"
+            >{{ config.public.hash.substring(0, 7) }}</a
+          >
         </p>
-        <p><a href="https://worldwidepixel.ca/">Created by WorldWidePixel</a> and <a
-            href="https://blurryface.xyz">Blurryface</a>.</p>
+        <p>
+          <a href="https://worldwidepixel.ca/">Created by WorldWidePixel</a> and
+          <a href="https://blurryface.xyz">Blurryface</a>.
+        </p>
       </div>
       <div class="links links-1" role="region" aria-label="Legal">
         <h4 aria-hidden="true">Company</h4>
@@ -242,9 +337,15 @@
       </div>
       <div class="links links-3" role="region" aria-label="Interact">
         <h4 aria-hidden="true">Interact</h4>
-        <a rel="noopener" :target="$external()" href="https://bsky.app/profile/nineminecraft.com"> Bluesky </a>
-        <a rel="noopener" :target="$external()" href="https://www.youtube.com/watch?v=yPYZpwSpKmA"> Twitter </a>
-        <a rel="noopener" :target="$external()" href="https://mastodon.social/@worldwidepixel"> Mastodon </a>
+        <a rel="noopener" :target="$external()" href="https://bsky.app/profile/nineminecraft.com">
+          Bluesky
+        </a>
+        <a rel="noopener" :target="$external()" href="https://www.youtube.com/watch?v=yPYZpwSpKmA">
+          Twitter
+        </a>
+        <a rel="noopener" :target="$external()" href="https://mastodon.social/@worldwidepixel">
+          Mastodon
+        </a>
       </div>
       <div class="buttons">
         <nuxt-link class="btn btn-outline btn-primary" to="/legal/about">
@@ -262,14 +363,14 @@
         </nuxt-link>
       </div>
       <div class="not-affiliated-notice">
-        NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG. &bull; NOT AFFILIATED WITH MODRINTH
-        OR RINTH, INC.
+        NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG. &bull; NOT
+        AFFILIATED WITH MODRINTH OR RINTH, INC.
       </div>
     </footer>
   </div>
 </template>
 <script setup>
-import { LogInIcon, DownloadIcon } from 'omorphia'
+import { LogInIcon } from 'omorphia'
 import HamburgerIcon from '~/assets/images/utils/hamburger.svg'
 import CrossIcon from '~/assets/images/utils/x.svg'
 import SearchIcon from '~/assets/images/utils/search.svg'
@@ -325,7 +426,7 @@ useSeoMeta({
   ogSiteName: 'nineMinecraft',
   ogDescription: 'Discover and publish Minecraft content!',
   ogType: 'website',
-  //ogImage: 'https://avatars.githubusercontent.com/u/154568515?s=400&u=cbe73c8862ad6325359fd98d30b92b06d4e5fd72&v=4',
+  // ogImage: 'https://avatars.githubusercontent.com/u/154568515?s=400&u=cbe73c8862ad6325359fd98d30b92b06d4e5fd72&v=4',
   ogUrl: link,
 
   // Twitter
@@ -439,8 +540,8 @@ export default defineNuxtComponent({
             url: window.location.href,
           },
         })
-          .then(() => { })
-          .catch(() => { })
+          .then(() => {})
+          .catch(() => {})
       })
     },
     toggleMobileMenu() {
@@ -1126,7 +1227,6 @@ export default defineNuxtComponent({
     font-weight: bold;
     font-size: var(--font-size-md);
     color: var(--color-contrast);
-
 
     svg {
       color: var(--color-red);
