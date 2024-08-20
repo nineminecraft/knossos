@@ -327,6 +327,7 @@
       <div class="links links-1" role="region" aria-label="Legal">
         <h4 aria-hidden="true">Company</h4>
         <nuxt-link to="/legal/about"> About Us</nuxt-link>
+        <nuxt-link to="/minus"> Minus</nuxt-link>
         <a rel="noopener" :target="$external()" href="mailto:support@nineminecraft.com"> Email </a>
       </div>
       <div class="links links-2" role="region" aria-label="Resources">
